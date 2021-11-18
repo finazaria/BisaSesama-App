@@ -30,7 +30,7 @@ deploy_staging:
   script:
     - git remote add heroku https://heroku:$HEROKU_API_KEY@git.heroku.com/$NAMA_GIT
     - git checkout -B "$CI_BUILD_REF_NAME" "$CI_BUILD_REF"
-    - git push heroku 
+    - git push heroku main
   environment:
     name: staging
     url: $URL_HEROKU
@@ -42,7 +42,7 @@ deploy_production:
   script:
     - git remote add heroku https://heroku:$HEROKU_API_KEY@git.heroku.com/$NAMA_GIT
     - git checkout -B "$CI_BUILD_REF_NAME" "$CI_BUILD_REF"
-    - git push heroku
+    - git push heroku main
   environment:
     name: production
     url: $URL_HEROKU
