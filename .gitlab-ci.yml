@@ -1,0 +1,51 @@
+image: python:3.7
+
+stages:
+  - ver
+  - init
+  - tests
+  - deploy
+
+ver:
+  stage: ver
+  script:
+    - python --version
+    - whoami
+
+init:
+  stage: init
+  script:
+    - pip3 install psycopg2-binary
+    - pip3 install -r requirements.txt
+
+run_tests:
+  stage: tests
+  script:
+    - pip3 install psycopg2-binary
+    - pip3 install -r requirements.txt
+    - python3 manage.py test
+
+deploy_staging:
+  stage: deploy
+  script:
+    - git remote add heroku https://heroku:$HEROKU_API_KEY@git.heroku.com/$NAMA_GIT
+    - git checkout -B "$CI_BUILD_REF_NAME" "$CI_BUILD_REF"
+    - git push heroku 
+  environment:
+    name: staging
+    url: $URL_HEROKU
+  only:
+    - main
+
+deploy_production:
+  stage: deploy
+  script:
+    - git remote add heroku https://heroku:$HEROKU_API_KEY@git.heroku.com/$NAMA_GIT
+    - git checkout -B "$CI_BUILD_REF_NAME" "$CI_BUILD_REF"
+    - git push heroku
+  environment:
+    name: production
+    url: $URL_HEROKU
+  when: manual
+  only:
+    - main
