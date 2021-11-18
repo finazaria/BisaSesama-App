@@ -1,51 +1,75 @@
-image: python:3.7
-
+image: python:3.8
 stages:
-  - ver
-  - init
-  - tests
+  - test
   - deploy
 
-ver:
-  stage: ver
-  script:
-    - python --version
-    - whoami
+variables:
+  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
 
-init:
-  stage: init
-  script:
-    - pip3 install psycopg2-binary
-    - pip3 install -r requirements.txt
+cache:
+  paths:
+    - .cache/pip
 
-run_tests:
-  stage: tests
-  script:
-    - pip3 install psycopg2-binary
-    - pip3 install -r requirements.txt
-    - python3 manage.py test
+# Feel free to remove this in your generated project.
+.disable_on_template: &disable_on_template
+  rules:
+    - if: '$CI_COMMIT_REF_NAME != "template"'
 
-deploy_staging:
+.django_before_script: &django_before_script |-
+  pip install -r requirements.txt
+  python manage.py collectstatic --no-input
+
+.coverage_artifacts: &coverage_artifacts
+  artifacts:
+    paths:
+      - .coverage*
+
+
+#UnitTest:
+#  <<: *disable_on_template
+#  <<: *coverage_artifacts
+#  stage: test
+#  before_script:
+#    - *django_before_script
+#  script:
+#    - coverage run --parallel --include="./*" --omit="manage.py,project_name/*"
+#      manage.py test --exclude-tag=functional
+#
+#FunctionalTest:
+#  <<: *disable_on_template
+#  <<: *coverage_artifacts
+#  stage: test
+#  before_script:
+#    - apt-get update -q && apt-get install -yq chromium-driver
+#    - *django_before_script
+#  script:
+#    - coverage run --parallel --include="./*" --omit="manage.py,project_name/*"
+#      manage.py test --tag=functional
+
+#Coverage:
+#  <<: *disable_on_template
+#  stage: deploy
+#  before_script:
+#    - pip install coverage
+#    - coverage combine
+#  script:
+#    - coverage report -m
+#    - coverage html
+#  artifacts:
+#    paths:
+#      - htmlcov/
+
+Deployment:
+  rules:
+    - if: '$CI_COMMIT_REF_NAME == "master-new"'
+  image: ruby:2.7
   stage: deploy
+  before_script:
+    - gem install dpl
+    - wget -qO- https://cli-assets.heroku.com/install-ubuntu.sh | sh
   script:
-    - git remote add heroku https://heroku:$HEROKU_API_KEY@git.heroku.com/$NAMA_GIT
-    - git checkout -B "$CI_BUILD_REF_NAME" "$CI_BUILD_REF"
-    - git push heroku main
-  environment:
-    name: staging
-    url: $URL_HEROKU
-  only:
-    - main
-
-deploy_production:
-  stage: deploy
-  script:
-    - git remote add heroku https://heroku:$HEROKU_API_KEY@git.heroku.com/$NAMA_GIT
-    - git checkout -B "$CI_BUILD_REF_NAME" "$CI_BUILD_REF"
-    - git push heroku main
+    - dpl --provider=heroku --app=$HEROKU_APP_NAME --api-key=$HEROKU_API_KEY
+    - heroku run --app $HEROKU_APP_NAME migrate
   environment:
     name: production
-    url: $URL_HEROKU
-  when: manual
-  only:
-    - main
+    url: https://$HEROKU_APP_NAME.herokuapp.com
