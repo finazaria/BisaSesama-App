@@ -19,5 +19,6 @@ import beranda.urls as beranda
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include(beranda))
+    path('', include('beranda.urls')),
+    path('trigger_dua/', include('trigger_dua.urls', namespace='trigger_dua')),
 ]

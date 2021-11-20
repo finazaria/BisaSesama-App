@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}KOMORBID{% endblock %}
+
+{% block content %}
+    <div class='bg-primary jumbotron justify-content-center text-white' align="center">
+        <h1>Halaman Kelola Penyakit Komorbid</h1>
+        <h3>Bisa Bersama</h3>
+    </div>
+
+    <div class="col-lg-12 text-center">
+        <div class="row">
+          <div class="col-6"></div>
+          <div class="col-6">
+              <a href="./create/" class="btn btn-primary btn active" role="button" aria-pressed="true">Tambah Penyakit Komorbid Baru</a>
+          </div>
+        </div>
+
+    </div>
+    <br>
+
+    <div class="container d-flex justify-content-center" align="center">
+        <table class="table table-bordered table-responsive-xl" align="center">
+            <thead class="thead-light">
+                <th><center>ID</center></th>
+                <th><center>Judul</center></th>
+                <th><center>Penyakit Utama</center></th>
+                <th><center>Penyakit Komorbid</center></th>
+                <th><center>Action</center></th>
+            </thead>
+                <tr>
+                <td>K-001</td>
+                <td>Ayo bantu Zulfahri menghadapi penyakit Demam Berdarahnya!</td>
+                <td>Demam Berdarah</td>
+                <td>Pusing Kepala</td>
+                <td>
+                    <form action="{% url 'trigger_dua:update_komorbid' %}" method="get">
+                        <input type="hidden" id="id_u" name="id_u">
+                        <input type="submit" class="btn btn-success btn-sm" value="Update">
+                    </form>
+
+                    <form action="{% url 'trigger_dua:delete_komorbid' %}" method="get">
+                        <input type="hidden" id="id_d" name="id_d">
+                        <input type="submit" class="btn btn-danger btn-sm" value="Delete">
+                    </form>
+                </td>
+                </tr>
+        </table>
+    </div>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Create PD{% endblock %}
+
+{% block content %}
+    <div class='bg-primary jumbotron justify-content-center text-white' align="center">
+        <h1>Create Penggalangan Dana </h1>
+        <hr>
+        <h4>BisaBersama</h4>
+    </div>
+
+    <div class="container d-flex justify-content-center" align="center">
+        <form action="{% url 'trigger_dua:read_pdd' %}" method="post">
+            {% csrf_token %}
+            <h4>Nomor Sertifikat Rumah Ibadah:</h4>
+            <div class="input-group mb-3">
+                <input class="form-control" type="text" aria-label="default input example" required>
+            </div>
+            <br>
+
+            <input class="btn btn-outline-primary" type="submit" value="Create">
+        </form>
+    </div>
+{% endblock %}

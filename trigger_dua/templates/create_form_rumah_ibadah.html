@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}FORM RUMAH IBADAH{% endblock %}
+
+{% block content %}
+    <div class='bg-primary jumbotron justify-content-center text-white' align="center">
+        <h1>Form Rumah Ibadah</h1>
+        <hr>
+        <h4>Informasi Rumah Ibadah</h4>
+    </div>
+
+    <div class="container d-flex justify-content-center" align="center">
+        <form action="{% url 'trigger_dua:create_pdd' %}" method="POST">
+            {% csrf_token %}
+
+            <div class="form-group">
+
+                <h4>Nomor Sertifikat:</h4>
+                <div class="input-group mb-4">
+                    <input class="form-control" type="text" aria-label="default input example" required>
+                </div>
+
+                <h4>Nama: </h4>
+                <div class="input-group mb-4">
+                    <input class="form-control" type="text" aria-label="default input example" required>
+                </div>
+
+                <h4>Alamat:</h4>
+                <div class="input-group mb-4">
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" required></textarea>
+                </div>
+
+                <h4>Jenis:</h4>
+                <div class="input-group mb-4">
+                    <input class="form-control" type="text" aria-label="default input example" required>
+                </div>
+
+            </div>
+
+            <input class="btn btn-primary" type="submit" value="NEXT">
+        </form>
+
+    </div>
+{% endblock %}

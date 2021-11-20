@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}CREATE KOMORBID{% endblock %}
+
+{% block content %}
+      <div class='bg-primary jumbotron justify-content-center text-white' align="center">
+        <h1>Form Penyakit Komorbid</h1>
+        <h3>Informasi Penyakit Komorbid</h3>
+    </div>
+
+    <div class="container d-flex justify-content-center" align="center">
+        <form action="{% url 'trigger_dua:update_komorbid' %}" method="post">
+            <h4>ID Penggalangan Dana:</h4>
+            <select class="custom-select" aria-label="Default select example" required>
+              <option selected>Pilih ID Penggalangan Dana</option>
+              <option value="1">K-001</option>
+              <option value="2">K-002</option>
+            </select>
+
+            <br>
+            <br>
+
+            <h4>Komorbid:</h4>
+            <div class="input-group mb-3">
+                <input class="form-control" type="text" aria-label="default input example" required>
+            </div>
+            <br>
+
+            <input class="btn btn-primary" type="submit" value="UPDATE">
+        </form>
+    </div>
+{% endblock %}

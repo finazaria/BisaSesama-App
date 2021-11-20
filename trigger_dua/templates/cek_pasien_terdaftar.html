@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}CEK PASIEN{% endblock %}
+
+{% block content %}
+      <div class='bg-primary jumbotron justify-content-center text-white' align="center">
+        <h1>Cek Pasien yang Terdaftar</h1>
+    </div>
+
+    <div class="container d-flex justify-content-center" align="center">
+        <form action="{% url 'trigger_dua:read_pdd' %}" method="post">
+            {% csrf_token %}
+            <h4>NIK Pasien:</h4>
+            <div class="input-group mb-3">
+                <input class="form-control" type="text" aria-label="default input example" required>
+            </div>
+            <br>
+
+            <input class="btn btn-primary" type="submit" value="CHECK">
+        </form>
+    </div>
+{% endblock %}
