@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'beranda',
-    'trigger_dua'
+    'trigger_dua',
+    'pengguna'
 ]
 
 MIDDLEWARE = [

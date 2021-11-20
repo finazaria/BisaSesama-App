@@ -14,14 +14,13 @@
 
         <div class='bg-primary jumbotron justify-content-center text-white' align="center">
             <h1>Form Kategori Penggalangan Dana</h1>
-            <h3>Kategori Penggalangan Dana</h3>
         </div>
 
         <div class="container d-flex justify-content-center" align="center">
             <form action="/trigger_dua" id="form-action" method="post">
                 {% csrf_token %}
                 <h4>Kategori:</h4>
-                <select id="kategori" class="custom-select" aria-label="Default select example" required>
+                <select id="kategori" class="form-control" aria-label="Default select example" required>
                   <option selected>Pilih ID Penggalangan Dana</option>
                   <option value="1">Kesehatan</option>
                   <option value="2">Rumah Ibadah</option>
@@ -39,9 +38,6 @@
         <div class="container d-flex justify-content-center" align="center">
             <input class="btn btn-primary btn" type="submit" value="NEXT" onclick="myFunction()">
         </div>
-
-
-
 
         </div>
         <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="  crossorigin="anonymous"></script>

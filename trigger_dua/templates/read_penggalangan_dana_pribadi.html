@@ -6,7 +6,7 @@
 {% block content %}
     <div class='bg-primary jumbotron justify-content-center text-white' align="center">
         <h1>Halaman Kelola Penyakit Komorbid</h1>
-        <h3>Bisa Bersama</h3>
+        <h3>BisaBersama</h3>
     </div>
 
 
@@ -20,6 +20,7 @@
                 <th><center>Tanggal Aktif Awal</center></th>
                 <th><center>Deadline</center></th>
                 <th><center>Sisa Hari</center></th>
+                <th><center>Target Dana</center></th>
                 <th><center>Kategori</center></th>
                 <th><center>Status Verifikasi</center></th>
                 <th><center>Action</center></th>
@@ -28,17 +29,28 @@
                 <tr>
                 <td>K-001</td>
                 <td>Ayo bantu Zulfahri menghadapi penyakit Demam Berdarahnya!</td>
-                <td>Demam Berdarah</td>
-                <td>Pusing Kepala</td>
+                <td>Bandung</td>
+                <td>Jawa Barat</td>
+                <td>15 November 2021</td>
+                <td>7 Desember 2021</td>
+                <td>20 hari</td>
+                <td>Rp 1.000.000,-</td>
+                <td>Kesehatan</td>
+                <td>Sudah Terverifikasi</td>
                 <td>
-                    <form action="{% url 'trigger_dua:update_komorbid' %}" method="get">
+                    <form action="{% url 'trigger_dua:read_pdd' %}" method="get">
                         <input type="hidden" id="id_u" name="id_u">
-                        <input type="submit" class="btn btn-success btn-sm" value="Update">
+                        <input type="submit" class="btn btn-success btn-sm" value="Detail">
                     </form>
 
-                    <form action="{% url 'trigger_dua:delete_komorbid' %}" method="get">
+                    <form action="{% url 'trigger_dua:delete_pdd' %}" method="get">
                         <input type="hidden" id="id_d" name="id_d">
                         <input type="submit" class="btn btn-danger btn-sm" value="Delete">
+                    </form>
+
+                    <form action="{% url 'trigger_dua:cairkan_pdd' %}" method="get">
+                        <input type="hidden" id="id_c" name="id_c">
+                        <input type="submit" class="btn btn-warning btn-sm" value="Cairkan">
                     </form>
                 </td>
                 </tr>

@@ -27,6 +27,9 @@ def read_pdd(request):
 def delete_pdd(request):
     return render(request, 'read_penggalangan_dana_pribadi.html')
 
+def cairkan_pdd(request):
+    return render(request, 'read_penggalangan_dana_pribadi.html')
+
 def read_komorbid(request):
     return render(request, 'read_komorbid.html')
 
