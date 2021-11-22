@@ -16,9 +16,17 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <a class="dropdown-item " href="{% url 'trigger_dua:form_kategori' %}">Buat Penggalangan Dana</a>
             <a class="dropdown-item " href="{% url 'trigger_tiga:daftar-penggalangan-dana-admin' %}">Daftar Penggalangan Dana</a>
-            <a class="dropdown-item " href="{% url 'trigger_dua:read_pdd_pribadi' %}">Daftar Penggalangan Dana Pribadi</a>
             <a class="dropdown-item " href="{% url 'trigger_dua:read_komorbid' %}">Kelola Penyakit Komorbid</a>
 
+        </div>
+        </li>
+
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Data Penggalang Dana
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item " href="{% url 'trigger_dua:read_pdd_pribadi' %}">Daftar Penggalangan Dana Pribadi</a>
         </div>
         </li>
 
