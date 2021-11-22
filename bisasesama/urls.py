@@ -21,6 +21,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('beranda.urls')),
     path('trigger_dua/', include('trigger_dua.urls', namespace='trigger_dua')),
+    path('trigger_tiga/', include('trigger_tiga.urls', namespace='trigger_tiga')),
     path('pengguna/', include('pengguna.urls', namespace='pengguna')),
     path('trigger_empat/', include('trigger_empat.urls', namespace='trigger_empat')),
 ]

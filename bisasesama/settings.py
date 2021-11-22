@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'beranda',
     'trigger_dua',
+    'trigger_tiga',
     'pengguna',
     'trigger_empat',
 ]
