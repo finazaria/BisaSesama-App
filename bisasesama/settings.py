@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'beranda',
     'trigger_dua',
     'pengguna',
+    'trigger_empat',
 ]
 
 MIDDLEWARE = [

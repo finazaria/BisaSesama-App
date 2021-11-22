@@ -22,4 +22,5 @@ urlpatterns = [
     path('', include('beranda.urls')),
     path('trigger_dua/', include('trigger_dua.urls', namespace='trigger_dua')),
     path('pengguna/', include('pengguna.urls', namespace='pengguna')),
+    path('trigger_empat/', include('trigger_empat.urls', namespace='trigger_empat')),
 ]

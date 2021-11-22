@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}FORM Pembuatan Donasi{% endblock %}
+
+{% block content %}
+    <div class='bg-primary jumbotron justify-content-center text-white' align="center">
+        <h1>Form Pembuatan Donasi</h1>
+        <hr>
+        <h4>Informasi Umum Donasi </h4>
+    </div>
+
+    <div class="container d-flex justify-content-center" align="center">
+        <form action="" method="POST">
+            {% csrf_token %}
+
+            <div class="form-group row">
+
+                <h4>Email Donatur:</h4>
+                <div class="input-group mb-4">
+                    <input class="form-control" type="text" aria-label="default input example" required>
+                </div>
+
+                <h4>TimeStamp: </h4>
+                <div class="input-group mb-4">
+                    <input class="form-control" type="text" aria-label="default input example" required>
+                </div>
+
+                <h4>Judul Penggalangan Dana:</h4>
+                <div class="input-group mb-4">
+                    <input class="form-control" type="text" aria-label="default input example" required>
+                </div>
+
+                <h4>Metode Bayar:</h4>
+                <div class="input-group mb-4">
+                    <textarea class="form-control" id="default input example" rows="3" required></textarea>
+                </div>
+
+                <h4>Status Anonim:</h4>
+                <div class="input-group mb-4">
+                    <input class="form-control" type="text" aria-label="default input example" required>
+                </div>
+
+                <h4>Doa:</h4>
+                <div class="input-group mb-4">
+                    <input class="form-control" type="text" aria-label="exampleFormControlTextarea1" required>
+                </div>
+
+            </div>
+
+            <input class="btn btn-primary mb-5" type="submit" value="CREATE">
+        </form>
+
+    </div>
+{% endblock %}

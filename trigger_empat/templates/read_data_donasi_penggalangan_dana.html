@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Data Donasi Penggalangan Dana{% endblock %}
+
+{% block content %}
+    <div class='bg-primary jumbotron justify-content-center text-white' align="center">
+        <h1>Data Donasi Penggalangan Dana</h1>
+        <h3>BisaBersama</h3>
+    </div>
+
+
+    <div class="container d-flex justify-content-center" align="center">
+        <table class="table table-bordered table-responsive-xl" align="center">
+            <thead class="thead-light">
+                <th><center>ID</center></th>
+                <th><center>Judul</center></th>
+                <th><center>Kategori</center></th>
+                <th><center>Status Pembayaran</center></th>
+                <th><center>Action</center></th>
+
+            </thead>
+                <tr>
+                <td>K-001</td>
+                <td>Ayo bantu Zulfahri menghadapi penyakit Demam Berdarahnya!</td>
+                <td>Kesehatan</td>
+                <td>Sukses</td>
+                <td>
+                    <form action="" method="get">
+                        <input type="hidden" id="id_u" name="id_u">
+                        <input type="submit" class="btn btn-success btn-sm" value="Detail">
+                    </form>
+
+                    <form action="" method="get">
+                        <input type="hidden" id="id_d" name="id_d">
+                        <input type="submit" class="btn btn-danger btn-sm" value="Lihat Bukti">
+                    </form>
+                </td>
+                </tr>
+                <tr>
+                <td>R-001</td>
+                <td>Rekonstruksi Musholla Fasilkom oleh James Rond</td>
+                <td>Rumah Ibadah</td>
+                <td>Menunggu Pembayaran</td>
+                <td>
+                    <form action="" method="get">
+                        <input type="hidden" id="id_u" name="id_u">
+                        <input type="submit" class="btn btn-success btn-sm" value="Detail">
+                    </form>
+    
+                    <form action="" method="get">
+                        <input type="hidden" id="id_d" name="id_d">
+                        <input type="submit" class="btn btn-danger btn-sm" value="Upload Bukti">
+                    </form>
+                </td>
+                </tr>
+                <tr>
+                <td>...</td>
+                <td>...</td>
+                <td>...</td>
+                <td>Pengecekan</td>
+                <td>
+                    <form action="" method="get">
+                        <input type="hidden" id="id_u" name="id_u">
+                        <input type="submit" class="btn btn-success btn-sm" value="Detail">
+                    </form>
+
+                    <form action="" method="get">
+                        <input type="hidden" id="id_d" name="id_d">
+                        <input type="submit" class="btn btn-danger btn-sm" value="Lihat Bukti">
+                    </form>
+                </td>
+                </tr>
+                <tr>
+                <td>...</td>
+                <td>...</td>
+                <td>...</td>
+                <td>Dibatalkan</td>
+                <td>
+                    <form action="" method="get">
+                        <input type="hidden" id="id_u" name="id_u">
+                        <input type="submit" class="btn btn-success btn-sm" value="Detail">
+                    </form>
+                </td>
+                </tr>
+        </table>
+    </div>
+{% endblock %}
