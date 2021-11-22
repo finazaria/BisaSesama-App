@@ -1,0 +1,138 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}FORM UPDATE PENGGALANGAN DANA{% endblock %}
+
+{% block content %}
+    <div class='bg-primary jumbotron justify-content-center text-white' align="center">
+        <h1>Form Update Penggalangan Dana</h1>
+    </div>
+
+    <div class="container d-flex justify-content-center" align="center">
+        <!-- action => dia akan mengarah ke url mana -->
+        <form action="{% url 'trigger_dua:read_pdd' %}" method="POST">
+
+            <h3 style="text-align: center; margin-bottom: 40px">Informasi Umum Penggalangan Dana</h3>
+            {% csrf_token %}
+
+            <div class="form-group row">
+
+                <h4>ID Penggalangan Dana:</h4>
+                <div class="input-group mb-4">
+                    <input class="form-control" type="text" value="R-001" aria-label="Disabled input example" disabled readonly>
+                </div>
+
+                <h4>Email Penggalang Dana: </h4>
+                <div class="input-group mb-4">
+                    <input class="form-control" type="text" value="pwhiskin1@360.com" aria-label="Disabled input example" disabled readonly>
+                </div>
+
+                <h4>Judul:</h4>
+                <div class="input-group mb-4">
+                    <input class="form-control" type="text" aria-label="default input example" required>
+                </div>
+
+                <h4>Deskripsi:</h4>
+                <div class="input-group mb-4">
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" required></textarea>
+                </div>
+
+                <h4>Kota:</h4>
+                <div class="input-group mb-4">
+                    <input class="form-control" type="text" aria-label="default input example" required>
+                </div>
+
+                <h4>Provinsi:</h4>
+                <div class="input-group mb-4">
+                    <input class="form-control" type="text" aria-label="default input example" required>
+                </div>
+
+                <h4>Deadline Penggalangan Dana:</h4>
+                <div class="input-group mb-4">
+                    <input class="form-control" type="text" aria-label="default input example" required>
+                </div>
+
+                <h4>Jumlah Target Dana (Rupiah):</h4>
+                <div class="input-group mb-4">
+                    <input class="form-control" type="text" aria-label="default input example" required>
+                </div>
+
+                <h4>Status Verifikasi: </h4>
+                <div class="input-group mb-4">
+                    <input class="form-control" type="text" value="Belum Terverifikasi" aria-label="Disabled input example" disabled readonly>
+                </div>
+
+                <h4>Diverifikasi Oleh: </h4>
+                <div class="input-group mb-4">
+                    <input class="form-control" type="text" value="" aria-label="Disabled input example" disabled readonly>
+                </div>
+
+            </div>
+
+            <h3 style="text-align: center; margin-bottom: 40px; margin-top:25px">Informasi Tambahan Penggalangan Dana</h3>
+
+            <div class="form-group row">
+
+                <h4>Kategori:</h4>
+                <div class="input-group mb-4">
+                    <input class="form-control" type="text" value="Rumah Ibadah" aria-label="Disabled input example" disabled readonly>
+                </div>
+
+<!--                Kategori kesehatan
+
+                <h4>NIK Pasien:</h4>
+                <div class="input-group mb-4">
+                    <input class="form-control" type="text" aria-label="default input example" required>
+                </div>
+
+                <h4>Nama Pasien:</h4>
+                <div class="input-group mb-4">
+                    <input class="form-control" type="text" aria-label="default input example" required>
+                </div>
+
+                <h4>Penyakit Utama:</h4>
+                <div class="input-group mb-4">
+                    <input class="form-control" type="text" aria-label="default input example" required>
+                </div>
+
+                <h4>Penyakit Komorbid:</h4>
+                <div class="input-group mb-4">
+                    <input class="form-control" type="text" aria-label="default input example" required>
+                </div>
+            -->
+
+<!--                Kategori Rumah Ibadah-->
+                <h4>Nomor Sertifikat Rumah Ibadah:</h4>
+                <div class="input-group mb-4">
+                    <input class="form-control" type="text" value="RI-01" aria-label="default input example" required>
+                </div>
+
+                <h4>Kategori Aktivitas:</h4>
+                <select id="kategori" class="form-control mb-4" aria-label="Default select example" required>
+                    <option selected>Pilih ID Penggalangan Dana</option>
+                    <option value="1">Belajar</option>
+                    <option value="2">Menyapu</option>
+                    <option value="3">Mengepel</option>
+                    <option value="4">Berdoa</option>
+                    <option value="5">Bersih-bersih</option>
+                </select>
+
+<!--                Semua kategori -->
+                <h4>Berkas Penggalangan Dana:</h4>
+                <div class="input-group mb-4">
+                    <input class="form-control" type="text" aria-label="default input example" required>
+                </div>
+
+                <!-- diambil dari CATATAN_PENGAJUAN. Kosongkan jika belum ada -->
+                <h4>Catatan Pengajuan: </h4>
+                <div class="input-group mb-4">
+                    <input class="form-control" type="" value="" aria-label="Disabled input example" disabled readonly>
+                </div>
+            </div>
+
+            <input class="btn btn-primary mb-5" type="submit" value="UPDATE">
+            <br>
+        </form>
+
+    </div>
+{% endblock %}
