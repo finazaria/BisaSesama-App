@@ -15,7 +15,8 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <a class="dropdown-item " href="{% url 'trigger_dua:form_kategori' %}">Buat Penggalangan Dana</a>
-            <a class="dropdown-item " href="{% url 'trigger_tiga:daftar-penggalangan-dana-admin' %}">Daftar Penggalangan Dana</a>
+            <a class="dropdown-item " href="{% url 'trigger_tiga:daftar-penggalangan-dana-admin' %}">Daftar Penggalangan Dana - Admin</a>
+            <a class="dropdown-item " href="{% url 'trigger_empat:read_halaman_penggalangan_dana' %}">Daftar Penggalangan Dana - Pengguna</a>
             <a class="dropdown-item " href="{% url 'trigger_dua:read_komorbid' %}">Kelola Penyakit Komorbid</a>
 
         </div>
@@ -29,14 +30,8 @@
             <a class="dropdown-item " href="{% url 'trigger_dua:read_pdd_pribadi' %}">Daftar Penggalangan Dana Pribadi</a>
         </div>
         </li>
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Penggalangan dana
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item " href="{% url 'trigger_empat:read_halaman_penggalangan_dana' %}">daftar penggalangan dana</a>
-            </div>
-        </li>
+        
+        
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Donasi
