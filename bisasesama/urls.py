@@ -24,4 +24,5 @@ urlpatterns = [
     path('trigger_tiga/', include('trigger_tiga.urls', namespace='trigger_tiga')),
     path('pengguna/', include('pengguna.urls', namespace='pengguna')),
     path('trigger_empat/', include('trigger_empat.urls', namespace='trigger_empat')),
+    path('login/', include('login.urls', namespace='login')),
 ]

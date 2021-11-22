@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}FORM PASIEN{% endblock %}
+
+{% block content %}
+    <div class='bg-primary jumbotron justify-content-center text-white' align="center">
+        <h1>Form Pasien</h1>
+        <hr>
+        <h4>Identitas Pasien</h4>
+    </div>
+
+    <div class="container d-flex justify-content-center" align="center">
+        <form action="{% url '' %}" method="POST">
+            {% csrf_token %}
+
+            <div class="form-group row">
+
+                <h4>Email:</h4>
+                <div class="input-group mb-4">
+                    <input class="form-control" type="text" aria-label="default input example" required>
+                </div>
+
+                <h4>Password: </h4>
+                <div class="input-group mb-4">
+                    <input class="form-control" type="password" aria-label="default input example" required>
+                </div>
+
+            </div>
+            
+            <input class="btn btn-primary mb-5"  type="submit" value="Login">
+        </form>
+
+    </div>
+{% endblock %}
