@@ -1,0 +1,158 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}DETAIL PENGGALANGAN DANA{% endblock %}
+
+{% block content %}
+    <div class='bg-primary jumbotron justify-content-center text-white' align="center">
+        <h1>Detail Penggalangan Dana: nama_PD</h1>
+    </div>
+
+    <div class="container d-flex justify-content-center" align="center">
+        <form action="{% url 'trigger_dua:read_pdd' %}" method="POST">
+
+            <h3 style="text-align: center; margin-bottom: 40px">Informasi Umum Penggalangan Dana</h3>
+            {% csrf_token %}
+
+            <div class="form-group row">
+
+                <h4>ID Penggalangan Dana:</h4>
+                <div class="input-group mb-4">
+                    <input class="form-control" type="text" value="K-001" aria-label="Disabled input example" disabled readonly>
+                </div>
+
+                <h4>Email Penggalang Dana:</h4>
+                <div class="input-group mb-4">
+                    <input class="form-control" type="text" value="hbavidge0@squidoo.com" aria-label="Disabled input example" disabled readonly>
+                </div>
+
+                <h4>Judul:</h4>
+                <div class="input-group mb-4">
+                    <input class="form-control" type="text" value="Ayo bantu Zulfahri menghadapi penyakit Demam Berdarahnya!" aria-label="Disabled input example" disabled readonly>
+                </div>
+
+                <h4>Deskripsi:</h4>
+                <div class="input-group mb-4">
+                    <textarea class="form-control" aria-label="Disabled input example" id="exampleFormControlTextarea1" rows="3" disabled readonly>Action|Adventure|Fantasy</textarea>
+                </div>
+
+                <h4>Kota:</h4>
+                <div class="input-group mb-4">
+                    <input class="form-control" type="text" value="Bandung" aria-label="Disabled input example" disabled readonly>
+                </div>
+
+                <h4>Provinsi:</h4>
+                <div class="input-group mb-4">
+                    <input class="form-control" type="text" value="Jawa Barat" aria-label="Disabled input example" disabled readonly>
+                </div>
+
+                <h4>Deadline Penggalangan Dana:</h4>
+                <div class="input-group mb-4">
+                    <input class="form-control" type="text" value="7 Desember 2021" aria-label="Disabled input example" disabled readonly>
+                </div>
+
+                <h4>Jumlah Target Dana (Rupiah):</h4>
+                <div class="input-group mb-4">
+                    <input class="form-control" type="text" value="Rp 1.000.000,-" aria-label="Disabled input example" disabled readonly>
+                </div>
+            </div>
+
+            <h3 style="text-align: center; margin-bottom: 40px; margin-top:25px">Informasi Tambahan Penggalangan Dana</h3>
+
+            <div class="form-group row">
+
+                <h4>Kategori:</h4>
+                <div class="input-group mb-4">
+                    <input class="form-control" type="text" value="Kesehatan" aria-label="Disabled input example" disabled readonly>
+                </div>
+
+<!--                Kategori kesehatan-->
+
+                <h4>NIK Pasien:</h4>
+                <div class="input-group mb-4">
+                    <input class="form-control" type="text" value="320107473" aria-label="Disabled input example" disabled readonly>
+                </div>
+
+                <h4>Nama Pasien:</h4>
+                <div class="input-group mb-4">
+                    <input class="form-control" type="text" value="Zulfahri" aria-label="Disabled input example" disabled readonly>
+                </div>
+
+                <h4>Penyakit Utama:</h4>
+                <div class="input-group mb-4">
+                    <input class="form-control" type="text" value="Covid" aria-label="Disabled input example" disabled readonly>
+                </div>
+
+<!--                Kategori Rumah Ibadah
+                <h4>Nomor Sertifikat Rumah Ibadah:</h4>
+                <div class="input-group mb-4">
+                    <input class="form-control" type="text" value="RI-01" aria-label="Disabled input example" disabled readonly>
+                </div>
+
+                <h4>Kategori Aktivitas:</h4>
+                <select id="kategori" class="form-control mb-4" disabled>
+                  <option value="1">Belajar</option>
+                </select>
+            -->
+
+<!--                Semua kategori -->
+                <h4>Berkas Penggalangan Dana:</h4>
+                <div class="input-group mb-4">
+                    <input class="form-control" type="text" value="https://dropbox.com" aria-label="Disabled input example" disabled readonly>
+                </div>
+
+                <h4>Catatan Pengajuan:</h4>
+                <div class="input-group mb-4">
+                    <input class="form-control" type="text" value="" aria-label="Disabled input example" disabled readonly>
+                </div>
+
+                <h4>Jumlah Terkumpul:</h4>
+                <div class="input-group mb-4">
+                    <input class="form-control" type="text" value="Rp 5.000.000,-" aria-label="Disabled input example" disabled readonly>
+                </div>
+
+                <h4>Donatur:</h4>
+                <table class="table table-bordered table-responsive-xl" align="center">
+                    <thead>
+                        <th><center>Email</center></th>
+                        <th><center>Timestamp</center></th>
+                        <th><center>Nominal</center></th>
+                        <th><center>Doa</center></th>
+                    </thead>
+                        <tr>
+                        <td>...</td>
+                        <td>...</td>
+                        <td>...</td>
+                        <td>...</td>
+                        </tr>
+                </table>
+
+                <h4>Jumlah Terpakai:</h4>
+                <div class="input-group mb-4">
+                    <input class="form-control" type="text" value="Rp 2.000.000,-" aria-label="Disabled input example" disabled readonly>
+                </div>
+
+                <h4>Rincian Penggunaan:</h4>
+                <table class="table table-bordered table-responsive-xl" align="center">
+                    <thead>
+                        <th><center>Waktu</center></th>
+                        <th><center>Nominal</center></th>
+                        <th><center>Deskripsi</center></th>
+                    </thead>
+                        <tr>
+                        <td>...</td>
+                        <td>...</td>
+                        <td>...</td>
+                        </tr>
+                </table>
+
+
+
+            </div>
+
+            <input class="btn btn-danger mb-5" type="submit" value="Cancel">
+            <br>
+        </form>
+
+    </div>
+{% endblock %}
