@@ -10,6 +10,8 @@ urlpatterns = [
     path("detail2-daftar-penggalangan-dana", detail2_daftar_penggalangan_dana, name="detail2-daftar-penggalangan-dana"),
     path("update-penggalangan-dana", form_update_penggalangan_dana, name="form-update-penggalangan-dana"),
     path("form-verifikasi-penggalangan-dana", form_verifikasi_penggalangan_dana, name="form-verifikasi-penggalangan-dana"),
+    path("read-kategori-penggalangan-dana-admin", read_kategori_penggalangan_dana_admin, name="read-kategori-penggalangan-dana-admin"),
+    path("form-create-kategori-penggalangan-dana", form_create_kategori_penggalangan_dana, name="form-create-kategori-penggalangan-dana"),
+    path("form-update-kategori-penggalangan-dana", form_update_kategori_penggalangan_dana, name="form-update-kategori-penggalangan-dana"),
 
-    
 ]

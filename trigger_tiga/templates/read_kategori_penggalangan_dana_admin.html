@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}KATEGORI PENGGALANGAN DANA{% endblock %}
+
+{% block content %}
+    <div class='bg-primary jumbotron justify-content-center text-white' align="center">
+        <h1>Halaman Kategori Penggalangan Dana</h1>
+        <h3>BisaBersama</h3>
+    </div>
+
+
+    <div class="container d-flex justify-content-center" align="center">
+        <table class="table table-bordered table-responsive-xl" align="center">
+            <thead class="thead-light">
+                <th><center>ID</center></th>
+                <th><center>Nama Kategori</center></th>
+                <th><center>Action</center></th>
+
+            </thead>
+                <tr>
+                <td><center>1</center></td>
+                <td>Kesehatan</td>
+                <td>
+                    <!-- Lead to update form -->
+                    <center>
+                    <form action="{% url 'trigger_tiga:form-update-kategori-penggalangan-dana' %}" method="get">
+                        <input type="hidden" id="id_u" name="id_u">
+                        <input type="submit" class="btn btn-primary btn-sm" value="Update">
+                    </form>
+                    </center>
+                </td>
+                </tr>
+
+                <tr>
+                    <td><center>2</center></td>
+                    <td>Rumah Ibadah</td>
+                    <td>
+                        <!-- Lead to update form -->
+                        <center>
+                        <form action="{% url 'trigger_tiga:form-update-kategori-penggalangan-dana' %}" method="get">
+                            <input type="hidden" id="id_u" name="id_u">
+                            <input type="submit" class="btn btn-primary btn-sm" value="Update">
+                        </form>
+                        </center>
+                    </td>
+                    </tr>
+
+                <tr>
+                    <td><center>3</center></td>
+                    <td>Bencana</td>
+                    <td>
+                        <!-- Lead to update form -->
+                        <center>
+                        <form action="{% url 'trigger_tiga:form-update-kategori-penggalangan-dana' %}" method="get">
+                            <input type="hidden" id="id_u" name="id_u">
+                            <input type="submit" class="btn btn-primary btn-sm" value="Update">
+                        </form>
+                        </center>
+                    </td>
+                    </tr>
+        </table>
+    </div>
+    <form action="{% url 'trigger_tiga:form-create-kategori-penggalangan-dana' %}" method="get">
+        <input type="hidden" id="id_u" name="id_u">
+        <input style="margin-left: 1055px;" type="submit" class="btn btn-success btn-sm" value="Tambah">
+    </form>
+{% endblock %}

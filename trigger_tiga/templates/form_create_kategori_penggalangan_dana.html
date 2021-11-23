@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}FORM KATEGORI PENGGALANGAN DANA{% endblock %}
+
+{% block content %}
+    <div class='bg-primary jumbotron justify-content-center text-white' align="center">
+        <h1>Form Kategori Penggalangan Dana</h1>
+    </div>
+
+    <div class="container d-flex justify-content-center" align="center">
+        <form action="{% url 'trigger_tiga:read-kategori-penggalangan-dana-admin' %}" method="POST">
+            {% csrf_token %}
+
+            <div class="form-group row">
+                
+                <!-- for now disabled. tapi nanti nyambung ke database dan nambah sendiri -->
+                <h4>Id Kategori :</h4>
+                <div class="input-group mb-4">
+                    <input class="form-control" type="text" value="4" aria-label="Disabled input example" disabled readonly>
+                </div>
+
+                <h4>Kategori :</h4>
+                <div class="input-group mb-4">
+                    <input class="form-control" type="text" aria-label="default input example" rows required>
+                </div>
+
+            </div>
+            
+            <input class="btn btn-success mb-5" type="submit" value="CREATE">
+        </form>
+
+    </div>
+{% endblock %}

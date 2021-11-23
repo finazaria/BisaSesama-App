@@ -22,3 +22,14 @@ def form_update_penggalangan_dana(request):
 def form_verifikasi_penggalangan_dana(request):
     return render(request, 'form_verifikasi_penggalangan_dana.html')
 
+# Halaman kategori penggalangan dana
+# Hanya dapat diakses oleh admin => Soalnya ada Update button nya
+def read_kategori_penggalangan_dana_admin(request):
+    return render(request, 'read_kategori_penggalangan_dana_admin.html')
+
+def form_create_kategori_penggalangan_dana(request):
+    return render(request, 'form_create_kategori_penggalangan_dana.html')
+
+def form_update_kategori_penggalangan_dana(request):
+    return render(request, 'form_update_kategori_penggalangan_dana.html')
+
