@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}FORM PENCAIRAN DANA{% endblock %}
+
+{% block content %}
+    <div class='bg-primary jumbotron justify-content-center text-white' align="center">
+        <h1>Form Pencairan Dana</h1>
+    </div>
+
+    <div class="container d-flex justify-content-center" align="center">
+        <form action="" method="POST">
+            {% csrf_token %}
+
+            <div class="form-group row">
+
+                <h4>Saldo DonaPay:</h4>
+                <div class="input-group mb-4">
+                    <input class="form-control" type="text" value="770600412" aria-label="Disabled input example" disabled readonly>
+                </div>
+
+                <h4>Penggalang Dana: </h4>
+                <div class="input-group mb-4">
+                    <input class="form-control" type="text" value="Lorem Ipsum" aria-label="Disabled input example" disabled readonly>
+                </div>
+
+                <h4>Nominal:</h4>
+                <div class="input-group mb-4">
+                    <input class="form-control" type="number" aria-label="default input example" required>
+                </div>
+
+                <h4>Keterangan:</h4>
+                <div class="input-group mb-4">
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" required></textarea>
+                </div>
+
+            </div>
+
+            <input class="btn btn-primary mb-5" type="submit" value="CREATE">
+            <br>
+        </form>
+
+    </div>
+{% endblock %}

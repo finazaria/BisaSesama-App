@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'pengguna',
     'trigger_empat',
     'login',
+    'trigger_lima',
 ]
 
 MIDDLEWARE = [
