@@ -48,7 +48,15 @@
 
         </ul>
         </div>
-        <a class="navbar-brand text-white" href="{% url 'login:login' %}">
+        <a style="font-size: medium;" class="navbar-brand text-white" href="{% url 'pengguna:daftar-pengguna-admin' %}">
+            <i class="d-inline-block align-center fa text-white"></i>
+            Lihat Daftar Pengguna
+        </a>
+        <a style="font-size: medium;" class="navbar-brand text-white" href="{% url 'pengguna:profil-pengguna' %}">
+            <i class="d-inline-block align-center fa text-white"></i>
+            Profil
+        </a>
+        <a style="font-size: medium;" class="navbar-brand text-white" href="{% url 'login:login' %}">
             <i class="d-inline-block align-center fa text-white"></i>
             Login
         </a>

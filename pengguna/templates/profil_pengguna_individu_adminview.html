@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}PROFIL PENGGUNA{% endblock %}
+
+{% block content %}
+    <div class='bg-primary jumbotron justify-content-center text-white' align="center">
+        <h1>PROFIL</h1>
+    </div>
+
+    <div class="container d-flex justify-content-center" align="center">
+        <form action="{% url 'pengguna:daftar-pengguna-admin' %}" method="POST">
+            {% csrf_token %}
+
+            <div class="form-group row">
+
+                <h4>Email:</h4>
+                <div class="input-group mb-4">
+                    <input class="form-control" type="text" value="hbavidge0@squidoo.com" aria-label="Disabled input example" disabled readonly>
+                </div>
+
+                <h4>Nama:</h4>
+                <div class="input-group mb-4">
+                    <input class="form-control" type="text" value="Hermy Bavidge" aria-label="Disabled input example" disabled readonly>
+                </div>
+
+                <h4>Nomor HP:</h4>
+                <div class="input-group mb-4">
+                    <input class="form-control" type="text" value="+49 462 730 7292" aria-label="Disabled input example" disabled readonly>
+                </div>
+
+                <h4>Alamat:</h4>
+                <div class="input-group mb-4">
+                    <input class="form-control" type="text" value="84826 Bashford Drive" aria-label="Disabled input example" disabled readonly>
+                </div>
+
+                <h4>Nama Bank:</h4>
+                <div class="input-group mb-4">
+                    <input class="form-control" type="text" value="Livepath" aria-label="Disabled input example" disabled readonly>
+                </div>
+
+                <h4>No. Rekening:</h4>
+                <div class="input-group mb-4">
+                    <input class="form-control" type="text" value="1376728257" aria-label="Disabled input example" disabled readonly>
+                </div>
+
+                <!-- Individu atau Organisasi -->
+                <h4>Jenis:</h4>
+                <div class="input-group mb-4">
+                    <input class="form-control" type="text" value="Individu" aria-label="Disabled input example" disabled readonly>
+                </div>
+
+<!--                Jenis Organisasi 
+
+                <h4>Nama Organisasi:</h4>
+                <div class="input-group mb-4">
+                    <input class="form-control" type="text" value="Schumm Inc" aria-label="Disabled input example" disabled readonly>
+                </div>
+
+                <h4>Nomor Akta Pendirian:</h4>
+                <div class="input-group mb-4">
+                    <input class="form-control" type="text" value="AK-3077" aria-label="Disabled input example" disabled readonly>
+                </div>
+
+                <h4>No. Telepon Organisasi:</h4>
+                <div class="input-group mb-4">
+                    <input class="form-control" type="text" value="+86 202 761 6982" aria-label="Disabled input example" disabled readonly>
+                </div>
+
+                <h4>Tahun Berdiri:</h4>
+                <div class="input-group mb-4">
+                    <input class="form-control" type="text" value="2006" aria-label="Disabled input example" disabled readonly>
+                </div>
+
+                <h4>Foto Akta Pendirian:</h4>
+                <div class="input-group mb-4">
+                    <input class="form-control" type="text" value="Akta.jpg" aria-label="Disabled input example" disabled readonly>
+                </div>
+
+            -->
+
+<!--                Jenis Individu -->
+
+            <h4>NIK:</h4>
+            <div class="input-group mb-4">
+                <input class="form-control" type="text" value="12345678092874" aria-label="Disabled input example" disabled readonly>
+            </div>
+
+            <h4>Tanggal Lahir:</h4>
+            <div class="input-group mb-4">
+                <input class="form-control" type="text" value="30 Oktober 1976" aria-label="Disabled input example" disabled readonly>
+            </div>
+
+            <h4>Jenis Kelamin:</h4>
+            <div class="input-group mb-4">
+                <input class="form-control" type="text" value="Laki-laki" aria-label="Disabled input example" disabled readonly>
+            </div>
+
+            <h4>Foto KTP:</h4>
+            <div class="input-group mb-4">
+                <input class="form-control" type="text" value="FotoKTP.jpg" aria-label="Disabled input example" disabled readonly>
+            </div>
+
+            </div>
+
+            <input class="btn btn-danger mb-5" type="submit" value="Cancel">
+            <br>
+        </form>
+
+    </div>
+{% endblock %}

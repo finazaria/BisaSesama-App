@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}DAFTAR PENGGUNA{% endblock %}
+
+{% block content %}
+    <div class='bg-primary jumbotron justify-content-center text-white' align="center">
+        <h1>Daftar Pengguna</h1>
+        <h3>BisaBersama</h3>
+    </div>
+
+
+    <div class="container d-flex justify-content-center" align="center">
+        <table class="table table-bordered table-responsive-xl" align="center">
+            <thead class="thead-light">
+                <th><center>Email</center></th>
+                <th><center>Nama</center></th>
+                <th><center>Jenis</center></th>
+                <th><center>Status</center></th>
+                <th><center>Action</center></th>
+
+            </thead>
+                <tr>
+                <td>hbavidge0@squidoo.com</td>
+                <td>Hermy Bavidge</td>
+                <td><center>Individu</center></td>
+                <td><center>Terverifikasi</center></td>
+
+                <td>
+                    <!-- detail -->
+                    <center>
+                    <form action="{% url 'pengguna:profil-pengguna-individu-adminview' %}" method="get">
+                        <input type="hidden" id="id_u" name="id_u">
+                        <input type="submit" class="btn btn-success btn-sm" value="Detail">
+                    </form>
+                    </center>
+                </td>
+                </tr>
+            <tr>
+                <tr>
+                    <td>rhandrock1z@sciencedaily.com</td>
+                    <td>Wuckert Group</td>
+                    <td><center>Organisasi</center></td>
+                    <td><center>Terverifikasi</center></td>
+    
+                    <td>
+                        <center>
+                        <!-- detail -->
+                        <form action="{% url 'pengguna:profil-pengguna-organisasi-adminview' %}" method="get">
+                            <input type="hidden" id="id_u" name="id_u">
+                            <input type="submit" class="btn btn-success btn-sm" value="Detail">
+                        </form>
+                        </center>
+                        <!-- <center>
+                        <form action="{% url 'pengguna:daftar-pengguna-admin-afterverif' %}" method="get">
+                            <input type="hidden" id="id_u" name="id_u">
+                            <input type="submit" class="btn btn-primary btn-sm" value="Verifikasi">
+                        </form>
+                        </center> -->
+                    </td>
+                    </tr>
+        </table>
+    </div>
+{% endblock %}
