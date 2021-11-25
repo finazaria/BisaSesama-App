@@ -107,7 +107,69 @@
             <div class="input-group mb-4">
                 <input class="form-control" type="text" value="Rp1.000.000" aria-label="Disabled input example" disabled readonly>
             </div>
+          
+            <h5>Wishlist Donasi:</h5>
 
+            <di v class="container d-flex justify-content-center" align="center">
+                <table class="table table-bordered table-responsive-xl" align="center">
+                    <thead class="thead-light">
+                        <th><center>ID</center></th>
+                        <th><center>Judul</center></th>
+                        <th><center>Kategori</center></th>
+                        <th><center>Action</center></th>
+        
+                    </thead>
+                        <tr>
+                        <td>K-001</td>
+                        <td>Ayo bantu Zulfahri menghadapi penyakit Demam Berdarahnya!</td>
+                        <td>Kesehatan</td>
+                        <td>
+                            <form action="{% url 'trigger_dua:read_pdd' %}" method="get">
+                                <input type="hidden" id="id_u" name="id_u">
+                                <input type="submit" class="btn btn-success btn-sm" value="Detail">
+                            </form>
+        
+                            <form action="{% url 'trigger_empat:form_donasi' %}" method="get">
+                                <input type="hidden" id="id_d" name="id_d">
+                                <input type="submit" class="btn btn-danger btn-sm" value="Donasi">
+                            </form>
+        
+                            <form action="" method="get">
+                                <input type="hidden" id="id_c" name="id_c">
+                                <input type="submit" class="btn btn-warning btn-sm" value="Delete">
+                            </form>
+                        </td>
+                        </tr>
+        
+                        <!-- skenario update -->
+                        <tr>
+                            <td>R-001</td>
+                            <td>Bangun masjid untuk Desa Maju</td> 
+                            <td>Rumah Ibadah</td>
+                            <!-- if belum terverifikasi nanti ada tombol "verifikasi" -->
+                            <td>
+                                <!-- detail -->
+                                <form action="{% url 'trigger_tiga:detail2-daftar-penggalangan-dana' %}" method="get">
+                                    <input type="hidden" id="id_u" name="id_u">
+                                    <input type="submit" class="btn btn-success btn-sm" value="Detail">
+                                </form>
+                                <form action="{% url 'trigger_empat:form_donasi' %}" method="get">
+                                    <input type="hidden" id="id_d" name="id_d">
+                                    <input type="submit" class="btn btn-danger btn-sm" value="Donasi">
+                                </form>
+            
+                                <form action="" method="get">
+                                    <input type="hidden" id="id_c" name="id_c">
+                                    <input type="submit" class="btn btn-warning btn-sm" value="Delete">
+                                </form>
+                            </td>
+                            </tr>
+                </table>
+        
+            </div>
+        
+            <div class="container justify-content text-left mb-5">
+                <h6><strong>Jumlah Wishlist: 2</strong></h6>
             </div>
 
             <input class="btn btn-danger mb-5" type="submit" value="Cancel">
