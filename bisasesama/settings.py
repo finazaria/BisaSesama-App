@@ -84,12 +84,15 @@ WSGI_APPLICATION = 'bisasesama.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+DATABASE_URL = 'postgres://njmabrzsnnaksb:d438b56e0f4ca5237c086c40c27f3a6063bad512e11404a61c0840eae4b3b115@ec2-44-194-232-228.compute-1.amazonaws.com:5432/dfsh6nbogdbf3k'
+
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+    'default': dj_database_url.config(),
 }
+
+DATABASES['default'] = dj_database_url.config()
+DATABASES['default'] = dj_database_url.config(default=DATABASE_URL)
 
 PRODUCTION = os.environ.get('DATABASE_URL') is not None
 if PRODUCTION:
