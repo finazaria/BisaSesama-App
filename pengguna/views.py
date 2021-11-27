@@ -1,5 +1,8 @@
 from django.shortcuts import render
 
+def register(request):
+    return render(request, 'register_role.html')
+
 def form_admin(request):
     return render(request, 'form_admin.html')
 
