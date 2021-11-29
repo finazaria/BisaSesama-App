@@ -14,12 +14,14 @@
         Penggalangan Dana
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            {% if request.session.role == 'ADMIN_SISTEM' %}
             <a class="dropdown-item " href="{% url 'trigger_dua:form_kategori' %}">Buat Penggalangan Dana</a>
 
-            <!-- hanya dapat diakses oleh admin -->
             <a class="dropdown-item " href="{% url 'trigger_tiga:read-kategori-penggalangan-dana-admin' %}">Kategori Penggalangan Dana</a>
 
             <a class="dropdown-item " href="{% url 'trigger_tiga:daftar-penggalangan-dana-admin' %}">Daftar Penggalangan Dana - Admin</a>
+            {% endif %}
+
             <a class="dropdown-item " href="{% url 'trigger_empat:read_halaman_penggalangan_dana' %}">Daftar Penggalangan Dana - Pengguna</a>
             <a class="dropdown-item " href="{% url 'trigger_dua:read_komorbid' %}">Kelola Penyakit Komorbid</a>
 
@@ -27,7 +29,7 @@
         </li>
 
         <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Data Penggalang Dana
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -48,10 +50,13 @@
 
         </ul>
         </div>
+        {% if request.session.role == 'ADMIN_SISTEM' %}
         <a style="font-size: medium;" class="navbar-brand text-white" href="{% url 'pengguna:daftar-pengguna-admin' %}">
             <i class="d-inline-block align-center fa text-white"></i>
             Lihat Daftar Pengguna
         </a>
+        {% endif %}
+
         <a style="font-size: medium;" class="navbar-brand text-white" href="{% url 'pengguna:profil-pengguna' %}">
             <i class="d-inline-block align-center fa text-white"></i>
             Profil
