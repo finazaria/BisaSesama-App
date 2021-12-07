@@ -175,8 +175,8 @@ def profil_pengguna_organisasi_adminview(request):
 def read_daftar_pengguna_admin(request):
     with connection.cursor() as cursor:
         cursor.execute("SELECT email, nama, jenis, status_verifikasi FROM PENGGALANG_DANA;")
-        data_apotek = cursor_fetchall(cursor)
-    context = {'data': data_apotek}
+        data_pengguna = cursor_fetchall(cursor)
+    context = {'data': data_pengguna}
     return render(request, 'read_daftar_pengguna_admin.html')
 
 @pengguna
@@ -185,6 +185,6 @@ def read_daftar_pengguna_admin_afterverif(request):
         cursor.execute("SELECT email, nama, jenis, status_verifikasi "
                        "FROM PENGGALANG_DANA "
                        "WHERE status_verifikasi = 'Terferifikasi';")
-        data_apotek = cursor_fetchall(cursor)
-    context = {'data': data_apotek}
+        data_pengguna= cursor_fetchall(cursor)
+    context = {'data': data_pengguna}
     return render(request, 'read_daftar_pengguna_admin_afterverif.html')
