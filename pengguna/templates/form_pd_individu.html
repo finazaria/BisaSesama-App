@@ -11,27 +11,59 @@
     <div class="container d-flex justify-content-center" align="center">
         <form action="{% url '' %}" method="POST">
             {% csrf_token %}
+          
+            {% if form.non_field_errors %}
+            <div class="alert alert-danger" role="alert">
+            {{ form.non_field_errors }}
+            </div>
+            {% endif %}
 
             <div class="form-group row">
-
-                <h4>NIK:</h4>
+                <h4><label for = "{{form.NIK.id_for_label}}">NIK:</label></h4>
+                {% if form.NIK.errors %}
+                <div class="alert alert-danger" role="alert">
+                {{ form.NIK.errors }}
+                </div>
+                {% endif %}
+               
                 <div class="input-group mb-4">
                     <input class="form-control" type="text" aria-label="default input example" required>
+                    {{form.NIK}}
                 </div>
 
-                <h4>Tanggal Lahir:</h4>
+                <h4><label for = "{{form.Tanggal_lahir.id_for_label}}">Tanggal Lahir:</label></h4>
+                {% if form.Tanggal_lahir.errors %}
+                <div class="alert alert-danger" role="alert">
+                {{ form.Tanggal_lahir.errors }}
+                </div>
+                {% endif %}
                 <div class="input-group mb-4">
                     <input class="form-control" type="text" aria-label="default input example" required>
+                    {{form.Tanggal_lahir}}
                 </div>
 
-                <h4>Jenis Kelamin:</h4>
+                <h4><label for = "{{form.Jenis_Kelamin.id_for_label}}">Jenis Kelamin:</label></h4>
+                {% if form.Jenis_Kelamin.errors %}
+                <div class="alert alert-danger" role="alert">
+                {{ form.Jenis_Kelamin.errors }}
+                </div>
+                {% endif %}
+
                 <div class="input-group mb-4">
                     <input class="form-control" type="text" aria-label="default input example" required>
+                    {{form.Jenis_Kelamin}}
                 </div>
 
-                <h4>Foto KTP:</h4>
+                <h4><label for = "{{form.FotoKTP.id_for_label}}">Foto KTP:</label></h4>
+                {% if form.FotoKTP.errors %}
+                <div class="alert alert-danger" role="alert">
+                {{ form.FotoKTP.errors }}
+                </div>
+                {% endif %}
+                
                 <div class="input-group mb-4">
                     <input class="form-control" type="text" aria-label="default input example" required>
+                    {{form.FotoKTP}}
                 </div>
 
             </div>

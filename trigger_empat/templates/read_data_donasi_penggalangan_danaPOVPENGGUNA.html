@@ -36,17 +36,17 @@
                 <td>Kesehatan</td>
                 <td>
                     <form action="{% url 'trigger_dua:read_pdd' %}" method="get">
-                        <input type="hidden" id="id_u" name="id_u">
+                        <input type="hidden" id="id_de" name="id_de" value="{{row.id}}">
                         <input type="submit" class="btn btn-success btn-sm" value="Detail">
                     </form>
 
                     <form action="{% url 'trigger_empat:form_donasi' %}" method="get">
-                        <input type="hidden" id="id_d" name="id_d">
+                        <input type="hidden" id="id_d" name="id_d" value="{{row.id}}">
                         <input type="submit" class="btn btn-danger btn-sm" value="Donasi">
                     </form>
 
-                    <form action="" method="get">
-                        <input type="hidden" id="id_c" name="id_c">
+                    <form action="{% url 'trigger_empat:tambah_wishlist' %}" method="get">
+                        <input type="hidden" id="id_t" name="id_t" value = "{{row.id}}">
                         <input type="submit" class="btn btn-warning btn-sm" value="Tambah ke Wishlist">
                     </form>
                 </td>

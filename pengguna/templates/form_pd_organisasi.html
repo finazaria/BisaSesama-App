@@ -11,32 +11,68 @@
     <div class="container d-flex justify-content-center" align="center">
         <form action="{% url '' %}" method="POST">
             {% csrf_token %}
-
+            {% if form.non_field_errors %}
+            <div class="alert alert-danger" role="alert">
+            {{ form.non_field_errors }}
+            </div>
+            {% endif %}
             <div class="form-group row">
-
-                <h4>Nama Organisasi:</h4>
+                <h4><label for = "{{form.NamaOrganisasi.id_for_label}}">Nama Organisasi:</label></h4>
+                {% if form.NamaOrganisasi.errors %}
+                <div class="alert alert-danger" role="alert">
+                {{ form.NamaOrganisasi.errors }}
+                </div>
+                {% endif %}
+               
                 <div class="input-group mb-4">
                     <input class="form-control" type="text" aria-label="default input example" required>
+                    {{form.NamaOrganisasi}}
                 </div>
 
-                <h4>Nomor Akta Pendirian:</h4>
+                <h4><label for = "{{form.NAP.id_for_label}}">Nomor Akta Pendirian:</label></h4>
+                {% if form.NAP.errors %}
+                <div class="alert alert-danger" role="alert">
+                {{ form.NAP.errors }}
+                </div>
+                {% endif %}
+    
                 <div class="input-group mb-4">
                     <input class="form-control" type="text" aria-label="default input example" required>
+                    {{form.NAP}}
                 </div>
 
-                <h4>No. Telepon Organisasi:</h4>
+                <h4><label for = "{{form.Nomor_Telepon.id_for_label}}">No. Telepon Organisasi:</label></h4>
+                {% if form.Nomor_Telepon.errors %}
+                <div class="alert alert-danger" role="alert">
+                {{ form.Nomor_Telepon.errors }}
+                </div>
+                {% endif %}
+    
                 <div class="input-group mb-4">
                     <input class="form-control" type="text" aria-label="default input example" required>
+                    {{form.Nomor_Telepon}}
                 </div>
 
-                <h4>Tahun Berdiri:</h4>
+                <h4><label for = "{{form.Tahun_berdiri.id_for_label}}">Tahun Berdiri:</label></h4>
+                {% if form.Tahun_berdiri.errors %}
+                <div class="alert alert-danger" role="alert">
+                {{ form.Tahun_berdiri.errors }}
+                </div>
+                {% endif %}
                 <div class="input-group mb-4">
                     <input class="form-control" type="text" aria-label="default input example" required>
+                    {{form.Tahun_berdiri}}
                 </div>
 
-                <h4>Foto Akta Pendirian</h4>
+                <h4><label for = "{{form.FotoAktaPendirian.id_for_label}}">Foto Akta Pendirian:</label></h4>
+                {% if form.FotoAktaPendirian.errors %}
+                <div class="alert alert-danger" role="alert">
+                {{ form.FotoAktaPendirian.errors }}
+                </div>
+                {% endif %}
                 <div class="input-group mb-4">
                     <input class="form-control" type="text" aria-label="default input example" required>
+                    {{form.FotoAktaPendirian}}
                 </div>
 
             </div>

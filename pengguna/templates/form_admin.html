@@ -11,27 +11,60 @@
     <div class="container d-flex justify-content-center" align="center">
         <form action="{% url '' %}" method="POST">
             {% csrf_token %}
-
+            {% if form.non_field_errors %}
+            <div class="alert alert-danger" role="alert">
+            {{ form.non_field_errors }}
+            </div>
+            {% endif %}
+    
             <div class="form-group row">
 
-                <h4>Email:</h4>
+                <h4><label for = "{{form.email.id_for_label}}">email:</label></h4>
+                {% if form.email.errors %}
+                <div class="alert alert-danger" role="alert">
+                {{ form.email.errors }}
+                </div>
+                {% endif %}
+
                 <div class="input-group mb-4">
                     <input class="form-control" type="text" aria-label="default input example" required>
+                    {{form.email}}
                 </div>
 
-                <h4>Password: </h4>
+                <h4><label for = "{{form.password.id_for_label}}">Password:</label></h4>
+                {% if form.password.errors %}
+                <div class="alert alert-danger" role="alert">
+                {{ form.password.errors }}
+                </div>
+                {% endif %}
+
                 <div class="input-group mb-4">
                     <input class="form-control" type="text" aria-label="default input example" required>
+                    {{form.Password}}
                 </div>
 
-                <h4>Nama:</h4>
+                <h4><label for = "{{form.Nama.id_for_label}}">Nama:</label> </h4>
+                {% if form.Nama.errors %}
+                <div class="alert alert-danger" role="alert">
+                {{ form.Nama.errors }}
+                </div>
+                {% endif %}
+
                 <div class="input-group mb-4">
                     <input class="form-control" type="text" aria-label="default input example" required>
+                    {{form.Nama}}
                 </div>
 
-                <h4>Nomor HP:</h4>
+                <h4><label for = "form.Nomor.id_for_label">Nomor HP:</label></h4>
+                {% if form.Nomor.errors %}
+                <div class="alert alert-danger" role="alert">
+                {{ form.Nomor.errors }}
+                </div>
+                {% endif %}
+
                 <div class="input-group mb-4">
                     <input class="form-control" type="text" aria-label="default input example" required>
+                    {{form.Nomor}}
                 </div>
 
             </div>
