@@ -18,50 +18,50 @@
             {% endif %}
             <div class="form-group row">
                 <h4><label for = "{{form.NamaOrganisasi.id_for_label}}">Nama Organisasi:</label></h4>
-                {% if form.NamaOrganisasi.errors %}
+                {% if form.nama_organisasi.errors %}
                 <div class="alert alert-danger" role="alert">
-                {{ form.NamaOrganisasi.errors }}
+                {{ form.nama_organisasi.errors }}
                 </div>
                 {% endif %}
                
                 <div class="input-group mb-4">
                     <input class="form-control" type="text" aria-label="default input example" required>
-                    {{form.NamaOrganisasi}}
+                    {{form.nama_organisasi}}
                 </div>
 
                 <h4><label for = "{{form.NAP.id_for_label}}">Nomor Akta Pendirian:</label></h4>
-                {% if form.NAP.errors %}
+                {% if form.nomor_akta_pendirian.errors %}
                 <div class="alert alert-danger" role="alert">
-                {{ form.NAP.errors }}
+                {{ form.nomor_akta_pendirian.errors }}
                 </div>
                 {% endif %}
     
                 <div class="input-group mb-4">
                     <input class="form-control" type="text" aria-label="default input example" required>
-                    {{form.NAP}}
+                    {{form.nomor_akta_pendirian}}
                 </div>
 
                 <h4><label for = "{{form.Nomor_Telepon.id_for_label}}">No. Telepon Organisasi:</label></h4>
-                {% if form.Nomor_Telepon.errors %}
+                {% if form.no_telp_organisasi.errors %}
                 <div class="alert alert-danger" role="alert">
-                {{ form.Nomor_Telepon.errors }}
+                {{ form.no_telp_organisasi.errors }}
                 </div>
                 {% endif %}
     
                 <div class="input-group mb-4">
                     <input class="form-control" type="text" aria-label="default input example" required>
-                    {{form.Nomor_Telepon}}
+                    {{form.no_telp_organisasi}}
                 </div>
 
                 <h4><label for = "{{form.Tahun_berdiri.id_for_label}}">Tahun Berdiri:</label></h4>
-                {% if form.Tahun_berdiri.errors %}
+                {% if form.tahun_berdiri.errors %}
                 <div class="alert alert-danger" role="alert">
-                {{ form.Tahun_berdiri.errors }}
+                {{ form.tahun_berdiri.errors }}
                 </div>
                 {% endif %}
                 <div class="input-group mb-4">
                     <input class="form-control" type="text" aria-label="default input example" required>
-                    {{form.Tahun_berdiri}}
+                    {{form.tahun_berdiri}}
                 </div>
 
                 <h4><label for = "{{form.FotoAktaPendirian.id_for_label}}">Foto Akta Pendirian:</label></h4>

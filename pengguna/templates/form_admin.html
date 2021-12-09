@@ -44,27 +44,27 @@
                 </div>
 
                 <h4><label for = "{{form.Nama.id_for_label}}">Nama:</label> </h4>
-                {% if form.Nama.errors %}
+                {% if form.nama_lengkap.errors %}
                 <div class="alert alert-danger" role="alert">
-                {{ form.Nama.errors }}
+                {{ form.nama_lengkap.errors }}
                 </div>
                 {% endif %}
 
                 <div class="input-group mb-4">
                     <input class="form-control" type="text" aria-label="default input example" required>
-                    {{form.Nama}}
+                    {{form.nama_lengkap}}
                 </div>
 
                 <h4><label for = "form.Nomor.id_for_label">Nomor HP:</label></h4>
-                {% if form.Nomor.errors %}
+                {% if form.nomor_hp.errors %}
                 <div class="alert alert-danger" role="alert">
-                {{ form.Nomor.errors }}
+                {{ form.nomor_hp.errors }}
                 </div>
                 {% endif %}
 
                 <div class="input-group mb-4">
                     <input class="form-control" type="text" aria-label="default input example" required>
-                    {{form.Nomor}}
+                    {{form.nomor_hp}}
                 </div>
 
             </div>

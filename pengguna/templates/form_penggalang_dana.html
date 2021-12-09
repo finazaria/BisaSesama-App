@@ -50,59 +50,59 @@
 
 
                 <h4><label for = "{{form.password.id_for_label}}">Nama:</label> </h4>
-                {% if form.nama.errors %}
+                {% if form.nama_lengkap.errors %}
                 <div class="alert alert-danger" role="alert">
-                {{ form.nama.errors }}
+                {{ form.nama_lengkap.errors }}
                 </div>
                 {% endif %} 
                 <div class="input-group mb-4">
                     <input class="form-control" type="text" aria-label="default input example" required>
-                    {{form.nama}}
+                    {{form.nama_lengkap}}
                 </div>
 
                 <h4><label for = "{{form.Nomor.id_for_label}}">Nomor HP:</label> </h4>
-                {% if form.Nomor.errors %}
+                {% if form.nomor_hp.errors %}
                 <div class="alert alert-danger" role="alert">
-                {{ form.Nomor.errors }}
+                {{ form.nomor_hp.errors }}
                 </div>
                 {% endif %} 
                
                 <div class="input-group mb-4">
                     <input class="form-control" type="text" aria-label="default input example" required>
-                    {{form.Nomor}}
+                    {{form.nomor_hp}}
                 </div>
 
                 <h4><label for = "{{form.Alamat.id_for_label}}">Alamat:</label> </h4>
-                {% if form.Alamat.errors %}
+                {% if form.alamat.errors %}
                 <div class="alert alert-danger" role="alert">
-                {{ form.Alamat.errors }}
+                {{ form.alamat.errors }}
                 </div>
                 {% endif %} 
 
                 <div class="input-group mb-4">
                     <input class="form-control" type="text" aria-label="default input example" required>
-                    {{form.Alamat}}
+                    {{form.alamat}}
                 </div>
 
                 <h4><label for = "{{form.NamaBank.id_for_label}}">Nama Bank:</label> </h4>
-                {% if form.NamaBank.errors %}
+                {% if form.nama_bank.errors %}
                 <div class="alert alert-danger" role="alert">
-                {{ form.NamaBank.errors }}
+                {{ form.nama_bank.errors }}
                 </div>
                 {% endif %} 
                 <div class="input-group mb-4">
                     <input class="form-control" type="text" aria-label="default input example" required>
-                    {{form.NamaBank}}
+                    {{form.nama_bank}}
                 </div>
 
                 <h4><label for = "{{form.NamaBank.id_for_label}}">No. Rekening:</label> </h4>
-                {% if form.NoRek.errors %}
+                {% if form.nomor_rekening.errors %}
                 <div class="alert alert-danger" role="alert">
-                {{ form.NoRek.errors }}
+                {{ form.nomor_rekening.errors }}
 
                 <div class="input-group mb-4">
                     <input class="form-control" type="text" aria-label="default input example" required>
-                    {{form.NoRek}}
+                    {{form.nomor_rekening}}
                 </div>
 
                 <h4>Jenis:</h4>
@@ -110,6 +110,7 @@
                 <select id="kategori" class="form-control" aria-label="Default select example" required>
                   <option selected>Individu</option>
                   <option value="1">Organisasi</option>
+                  {{form.peran}}
 
                 </select>
 
