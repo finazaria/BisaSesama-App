@@ -20,14 +20,15 @@
                 <th><center>Action</center></th>
 
             </thead>
+                {% for row in i %}
                 <tr>
-                <td>770600413</td>
-                <td>Charlie's Country</td>
-                <td>Rumah Ibadah</td>
-                <td>Sukses</td>
+                <td>{{row.idPD}}</td>
+                <td>{{row.judul}}</td>
+                <td>{{row.nama_kategori}}</td>
+                <td>{{row.status}}</td>
                 <td>
                     <form action="{% url 'trigger_empat:read_detail_donasi' %}" method="get">
-                        <input type="hidden" id="id_u" name="id_u">
+                        <input type="hidden" id="id_de" name="id_de" value = {{row.idPD}} >
                         <input type="submit" class="btn btn-success btn-sm" value="Detail">
                     </form>
 
@@ -37,52 +38,8 @@
                     </form>
                 </td>
                 </tr>
-                <tr>
-                <td>R-001</td>
-                <td>Rekonstruksi Musholla Fasilkom oleh James Rond</td>
-                <td>Rumah Ibadah</td>
-                <td>Menunggu Pembayaran</td>
-                <td>
-                    <form action="{% url 'trigger_empat:read_detail_donasi' %}" method="get">
-                        <input type="hidden" id="id_de" name="id_de">
-                        <input type="submit" class="btn btn-success btn-sm" value="Detail">
-                    </form>
-    
-                    <form action="" method="get">
-                        <input type="hidden" id="id_ub" name="id_ub">
-                        <input type="submit" class="btn btn-danger btn-sm" value="Upload Bukti">
-                    </form>
-                </td>
-                </tr>
-                <tr>
-                <td>...</td>
-                <td>...</td>
-                <td>...</td>
-                <td>Pengecekan</td>
-                <td>
-                    <form action="" method="get">
-                        <input type="hidden" id="id_u" name="id_u">
-                        <input type="submit" class="btn btn-success btn-sm" value="Detail">
-                    </form>
-
-                    <form action="" method="get">
-                        <input type="hidden" id="id_d" name="id_d">
-                        <input type="submit" class="btn btn-danger btn-sm" value="Lihat Bukti">
-                    </form>
-                </td>
-                </tr>
-                <tr>
-                <td>...</td>
-                <td>...</td>
-                <td>...</td>
-                <td>Dibatalkan</td>
-                <td>
-                    <form action="" method="get">
-                        <input type="hidden" id="id_u" name="id_u">
-                        <input type="submit" class="btn btn-success btn-sm" value="Detail">
-                    </form>
-                </td>
-                </tr>
+                {% endfor %}
+                
         </table>
     </div>
 {% endblock %}

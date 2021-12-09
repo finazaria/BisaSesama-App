@@ -1,9 +1,8 @@
 from decimal import Context
 from django.shortcuts import redirect, render
 from django.db import connection
-
 from pengguna.views import pengguna, cursor_fetchall
-from .forms import *
+from trigger_empat.forms import *
 import datetime
 
 # Create your views here.
@@ -11,13 +10,14 @@ import datetime
 @pengguna
 def cek_penggalangan_dana(request):
     with connection.cursor() as cursor:
-        cursor.execute("SELECT *"
+        cursor.execute("SET SEARCH_PATH TO SIDONA SELECT *"
                        "FROM PENGGALANGAN_DANA_PD"
                       ";")
         data_pengguna= cursor_fetchall(cursor)
+        cursor.close()
     context = {'data': data_pengguna}
     return render(request, 'read_data_donasi_penggalangan_danaPOVPENGGUNA.html', context)
-# @pengguna
+@pengguna
 def form_donasi(request):
     # with connection.cursor() as cursor:
     if request.method == 'POST':
@@ -42,17 +42,18 @@ def form_donasi(request):
 def read_donasi(request):
     with connection.cursor() as cursor:
         cursor.execute(
-                    "SET SEARCH_PATH TO SIDONA SELECT * FROM DONASI WHERE email=%s ;",
+                    "SET SEARCH_PATH TO SIDONA SELECT idPD, judul, nama_kategori, status FROM DONASI, status_pembayaran, penggalangan_dana_pd WHERE email=%s AND" 
+                     "status_pembayaran.id = DONASI.idstatuspembayaran AND DONASI.idpd = penggalangan_dana_pd.id AND PENGGALANGAN_DANA_PD.id_kategori = kategori_pd.id;",
                     [request.session.get('email')])
         data = cursor_fetchall(cursor)
         cursor.close()
-    Context = {'isi' : data}
+    context = {'isi' : data}
     
-    return render(request, 'read_data_donasi_penggalangan_dana.html', Context)
-
+    return render(request, 'read_data_donasi_penggalangan_dana.html', context)
+@pengguna
 def tambah_wishlist(request):
     with connection.cursor() as cursor:
-        cursor.execute("SET SEARCH_PAT TO SIDONA INSERT INTO WISHLIST_DONASI VALUES(%s,%s);",
+        cursor.execute("SET SEARCH_PATH TO SIDONA INSERT INTO WISHLIST_DONASI VALUES(%s,%s);",
         [request.session.get('email'), request.GET.get('id_t')])
         cursor.close()
     cek_penggalangan_dana()
@@ -66,6 +67,10 @@ def read_detail_donasi(request):
             return redirect('trigger_empat:profil-pengguna')
         # columns = [col[0] for col in cursor.description]
         # datum = dict(zip(columns,  data)) 
+        cursor.close()
+        cursor.execute("SET SEARCH_PATH TO SIDONA SELECT JUDUL FROM PENGGALANGAN_DANA_PD WHERE idPD = %s LIMIT 1;",[data[5]])
+        data2 = cursor.fetchone()
+        cursor.close()
         date_db = data[1]
         formatted_date = date_db.strftime("%Y-%m-%d %H:%M:%S")
         datum = {}
@@ -75,7 +80,7 @@ def read_detail_donasi(request):
         datum['metodeBayar'] = data[3]
         datum['status'] = data[4]
         datum['doa'] = data[5]
-        datum['idPD'] = data[6]
+        datum['idPD'] = data2
         datum['idStatusPembayaran'] = data[7]
         cursor.close()
     context = {'data' : datum}
