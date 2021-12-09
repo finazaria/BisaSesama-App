@@ -20,32 +20,32 @@
 
             <div class="form-group row">
                 <h4><label for = "{{form.NIK.id_for_label}}">NIK:</label></h4>
-                {% if form.NIK.errors %}
+                {% if form.nik.errors %}
                 <div class="alert alert-danger" role="alert">
-                {{ form.NIK.errors }}
+                {{ form.nik.errors }}
                 </div>
                 {% endif %}
                
                 <div class="input-group mb-4">
                     <input class="form-control" type="text" aria-label="default input example" required>
-                    {{form.NIK}}
+                    {{form.nik}}
                 </div>
 
                 <h4><label for = "{{form.Tanggal_lahir.id_for_label}}">Tanggal Lahir:</label></h4>
-                {% if form.Tanggal_lahir.errors %}
+                {% if form.tanggal_lahir.errors %}
                 <div class="alert alert-danger" role="alert">
                 {{ form.Tanggal_lahir.errors }}
                 </div>
                 {% endif %}
                 <div class="input-group mb-4">
                     <input class="form-control" type="text" aria-label="default input example" required>
-                    {{form.Tanggal_lahir}}
+                    {{form.tanggal_lahir}}
                 </div>
 
                 <h4><label for = "{{form.Jenis_Kelamin.id_for_label}}">Jenis Kelamin:</label></h4>
-                {% if form.Jenis_Kelamin.errors %}
+                {% if form.jenis_jelamin.errors %}
                 <div class="alert alert-danger" role="alert">
-                {{ form.Jenis_Kelamin.errors }}
+                {{ form.jenis_kelamin.errors }}
                 </div>
                 {% endif %}
 
