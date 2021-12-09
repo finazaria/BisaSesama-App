@@ -14,7 +14,7 @@
         Penggalangan Dana
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            {% if request.session.role == 'ADMIN_SISTEM' %}
+            {% if request.session.role == 'ADMIN' %}
             <a class="dropdown-item " href="{% url 'trigger_dua:form_kategori' %}">Buat Penggalangan Dana</a>
 
             <a class="dropdown-item " href="{% url 'trigger_tiga:read-kategori-penggalangan-dana-admin' %}">Kategori Penggalangan Dana</a>
@@ -50,7 +50,7 @@
 
         </ul>
         </div>
-        {% if request.session.role == 'ADMIN_SISTEM' %}
+        {% if request.session.role == 'ADMIN' %}
         <a style="font-size: medium;" class="navbar-brand text-white" href="{% url 'pengguna:daftar-pengguna-admin' %}">
             <i class="d-inline-block align-center fa text-white"></i>
             Lihat Daftar Pengguna
