@@ -10,7 +10,7 @@ import datetime
 @pengguna
 def cek_penggalangan_dana(request):
     with connection.cursor() as cursor:
-        cursor.execute("SET SEARCH_PATH TO SIDONA SELECT *"
+        cursor.execute("SET SEARCH_PATH TO TK_SIDONA SELECT *"
                        "FROM PENGGALANGAN_DANA_PD"
                       ";")
         data_pengguna= cursor_fetchall(cursor)
@@ -24,12 +24,12 @@ def form_donasi(request):
         form = Tambah_Donasi(request.POST)
         if form.is_valid():
             form.save()
-            return redirect ("pengguna : read_detail_donasi")
+            return redirect ("trigger_empat : read_donasi")
     elif request.method == 'GET':
         if request.GET.get('id_d') is None:
-            return redirect("pengguna : read_halaman_penggalangan_dana")
+            return redirect("trigger_empat : read_halaman_penggalangan_dana")
         with connection.cursor() as cursor:
-            cursor.execute("SET SEARCH_PATH TO SIDONA SELECT id, judul FROM PENGGALANGAN_DANA_PD WHERE id = %s LIMIT 1;", [request.GET.get('id_d')])
+            cursor.execute("SET SEARCH_PATH TO TK_SIDONA SELECT id, judul FROM PENGGALANGAN_DANA_PD WHERE id = %s LIMIT 1;", [request.GET.get('id_d')])
             data = cursor.fetchone()
             judul = data[1]
             timestamp = datetime.datetime.now()
@@ -42,7 +42,8 @@ def form_donasi(request):
 def read_donasi(request):
     with connection.cursor() as cursor:
         cursor.execute(
-                    "SET SEARCH_PATH TO SIDONA SELECT idPD, judul, nama_kategori, status FROM DONASI, status_pembayaran, penggalangan_dana_pd WHERE email=%s AND" 
+                    "SET SEARCH_PATH TO TK_SIDONA SELECT DONASI.idPD, PENGGALANGAN_DANA_PD.judul, kategori_pd.nama_kategori," 
+                    "status_pembayaran.status FROM kategori_pd, DONASI, status_pembayaran, penggalangan_dana_pd WHERE email=%s AND" 
                      "status_pembayaran.id = DONASI.idstatuspembayaran AND DONASI.idpd = penggalangan_dana_pd.id AND PENGGALANGAN_DANA_PD.id_kategori = kategori_pd.id;",
                     [request.session.get('email')])
         data = cursor_fetchall(cursor)
@@ -53,22 +54,22 @@ def read_donasi(request):
 @pengguna
 def tambah_wishlist(request):
     with connection.cursor() as cursor:
-        cursor.execute("SET SEARCH_PATH TO SIDONA INSERT INTO WISHLIST_DONASI VALUES(%s,%s);",
+        cursor.execute("SET SEARCH_PATH TO TK_SIDONA INSERT INTO WISHLIST_DONASI VALUES(%s,%s);",
         [request.session.get('email'), request.GET.get('id_t')])
         cursor.close()
-    cek_penggalangan_dana()
+    return redirect("trigger_empat : read_halaman_penggalangan_dana")
 @pengguna
 def read_detail_donasi(request):
     with connection.cursor() as cursor:
-        cursor.execute("SET SEARCH_PATH TO SIDONA SELECT * FROM DONASI WHERE email =%s AND idPD = %s LIMIT 1;"
+        cursor.execute("SET SEARCH_PATH TO TK_SIDONA SELECT * FROM DONASI WHERE email =%s AND idPD = %s LIMIT 1;"
         ,[request.session.get('email'), request.GET.get('id_de')])
         data = cursor.fetchone()
         if data is None:
-            return redirect('trigger_empat:profil-pengguna')
+            return redirect('trigger_empat:read_donasi')
         # columns = [col[0] for col in cursor.description]
         # datum = dict(zip(columns,  data)) 
         cursor.close()
-        cursor.execute("SET SEARCH_PATH TO SIDONA SELECT JUDUL FROM PENGGALANGAN_DANA_PD WHERE idPD = %s LIMIT 1;",[data[5]])
+        cursor.execute("SET SEARCH_PATH TO TK_SIDONA SELECT JUDUL FROM PENGGALANGAN_DANA_PD WHERE idPD = %s LIMIT 1;",[data[5]])
         data2 = cursor.fetchone()
         cursor.close()
         date_db = data[1]
@@ -86,3 +87,10 @@ def read_detail_donasi(request):
     context = {'data' : datum}
         
     return render(request,'read_detail_donasi.html' ,context)
+
+def delete_wishlist_donasi(request):
+    with connection.cursor() as cursor:
+        cursor.execute("SET SEARCH_PATH TO TK_SIDONA DELETE FROM WISHLIST_DONASI WHERE email =%s AND idpd = %s;",
+        [request.session.get('email'), request.GET.get('id_c')])
+        cursor.close()
+    return redirect("pengguna : profil-pengguna")

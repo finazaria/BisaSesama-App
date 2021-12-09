@@ -130,12 +130,12 @@
                             </form>
         
                             <form action="{% url 'trigger_empat:form_donasi' %}" method="get">
-                                <input type="hidden" id="id_d" name="id_d">
+                                <input type="hidden" id="id_d" name="id_d" value = {{row.id}}>
                                 <input type="submit" class="btn btn-danger btn-sm" value="Donasi">
                             </form>
         
-                            <form action="" method="get">
-                                <input type="hidden" id="id_c" name="id_c">
+                            <form action="{% url 'trigger_empat:delete_wishlist' %}" method="get">
+                                <input type="hidden" id="id_c" name="id_c" value = {{row.id}}>
                                 <input type="submit" class="btn btn-warning btn-sm" value="Delete">
                             </form>
                         </td>
@@ -158,7 +158,7 @@
                                     <input type="submit" class="btn btn-danger btn-sm" value="Donasi">
                                 </form>
             
-                                <form action="" method="get">
+                                <form action="{% url 'trigger_empat:delete_wishlist' %}" method="get">
                                     <input type="hidden" id="id_c" name="id_c">
                                     <input type="submit" class="btn btn-warning btn-sm" value="Delete">
                                 </form>

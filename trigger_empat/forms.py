@@ -23,7 +23,7 @@ class Tambah_Donasi(forms.Form):
 
         with connection.cursor() as cursor:
             cursor.execute(
-                        "SET SEARCH_PATH TO SIDONA SELECT id FROM PENGGALANG_DANA_PD WHERE judul = %s LIMIT 1;",[judul_d]) 
+                        "SET SEARCH_PATH TO TK_SIDONA SELECT id FROM PENGGALANG_DANA_PD WHERE judul = %s LIMIT 1;",[judul_d]) 
             data = cursor_fetchall(cursor)
             cursor.close()
 
