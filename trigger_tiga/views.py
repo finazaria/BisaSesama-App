@@ -3,12 +3,12 @@ from django.shortcuts import render
 
 from pengguna.views import admin
 
-with connection.cursor() as cursor:
-        cursor.execute(
-            """
-            SET SEARCH_PATH TO TK_SIDONA;
-            """
-        )
+# with connection.cursor() as cursor:
+#         cursor.execute(
+#             """
+#             SET SEARCH_PATH TO TK_SIDONA;
+#             """
+#         )
 
 @admin
 def read_daftar_penggalangan_dana_admin(request):
