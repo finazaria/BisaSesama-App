@@ -5,9 +5,9 @@
 
 {% block content %}
     <div class='bg-primary jumbotron justify-content-center text-white' align="center">
-        <h1>Profil Pengguna: nama_pengguna</h1>
+        <h1>Profil Pengguna: {{ request.session.nama }}</h1>
     </div>
-
+    
     <div class="container d-flex justify-content-center" align="center">
         <form action="{% url '' %}" method="POST">
             {% csrf_token %}
@@ -16,160 +16,167 @@
 
                 <h4>Email:</h4>
                 <div class="input-group mb-4">
-                    <input class="form-control" type="text" value="hbavidge0@squidoo.com" aria-label="Disabled input example" disabled readonly>
+                    <input class="form-control" type="text" value="{{ user.0 }}" aria-label="Disabled input example" disabled readonly>
                 </div>
 
                 <h4>Nama:</h4>
                 <div class="input-group mb-4">
-                    <input class="form-control" type="text" value="Hermy Bavidge" aria-label="Disabled input example" disabled readonly>
+                    <input class="form-control" type="text" value="{{ user.nama_lengkap }}" aria-label="Disabled input example" disabled readonly>
                 </div>
 
                 <h4>Nomor HP:</h4>
                 <div class="input-group mb-4">
-                    <input class="form-control" type="text" value="+49 462 730 7292" aria-label="Disabled input example" disabled readonly>
+                    <input class="form-control" type="text" value="{{ user.nomor_hp }}" aria-label="Disabled input example" disabled readonly>
                 </div>
 
                 <h4>Alamat:</h4>
                 <div class="input-group mb-4">
-                    <input class="form-control" type="text" value="84826 Bashford Drive" aria-label="Disabled input example" disabled readonly>
+                    <input class="form-control" type="text" value="{{ user.alamat }}" aria-label="Disabled input example" disabled readonly>
                 </div>
 
                 <h4>Nama Bank:</h4>
                 <div class="input-group mb-4">
-                    <input class="form-control" type="text" value="Livepath" aria-label="Disabled input example" disabled readonly>
+                    <input class="form-control" type="text" value="{{ user.nama_bank }}" aria-label="Disabled input example" disabled readonly>
                 </div>
 
                 <h4>No. Rekening:</h4>
                 <div class="input-group mb-4">
-                    <input class="form-control" type="text" value="1376728257" aria-label="Disabled input example" disabled readonly>
+                    <input class="form-control" type="text" value="{{ user.nomor_rekening }}" aria-label="Disabled input example" disabled readonly>
                 </div>
 
-                <!-- Individu atau Organisasi -->
+                <!-- Peran : Individu atau Organisasi -->
                 <h4>Jenis:</h4>
                 <div class="input-group mb-4">
-                    <input class="form-control" type="text" value="Individu" aria-label="Disabled input example" disabled readonly>
+                    <input class="form-control" type="text" value="{{ user.peran }}" aria-label="Disabled input example" disabled readonly>
                 </div>
 
-<!--                Jenis Organisasi 
+                <div>
+                    { % if request.session.role == 'ORGANISASI' % }
+                        <h4>Nama Organisasi:</h4>
+                        <div class="input-group mb-4">
+                            <input class="form-control" type="text" value="{{ role.nama_organisasi }}" aria-label="Disabled input example" disabled readonly>
+                        </div>
 
-                <h4>Nama Organisasi:</h4>
-                <div class="input-group mb-4">
-                    <input class="form-control" type="text" value="Schumm Inc" aria-label="Disabled input example" disabled readonly>
+                        <h4>Nomor Akta Pendirian:</h4>
+                        <div class="input-group mb-4">
+                            <input class="form-control" type="text" value="{{ role.nomor_akta_pendirian }}" aria-label="Disabled input example" disabled readonly>
+                        </div>
+
+                        <h4>No. Telepon Organisasi:</h4>
+                        <div class="input-group mb-4">
+                            <input class="form-control" type="text" value="{{ role.nomor_telp_organisasi }}" aria-label="Disabled input example" disabled readonly>
+                        </div>
+
+                        <h4>Tahun Berdiri:</h4>
+                        <div class="input-group mb-4">
+                            <input class="form-control" type="text" value="2006" aria-label="{{ role.tahun_berdiri }}" disabled readonly>
+                        </div>
+
+                        <h4>Foto Akta Pendirian:</h4>
+                        <div class="input-group mb-4">
+                            <input class="form-control" type="text" value="Akta.jpg" aria-label="Disabled input example" disabled readonly>
+                        </div>
+                    { % end if % }
                 </div>
 
-                <h4>Nomor Akta Pendirian:</h4>
-                <div class="input-group mb-4">
-                    <input class="form-control" type="text" value="AK-3077" aria-label="Disabled input example" disabled readonly>
-                </div>
-
-                <h4>No. Telepon Organisasi:</h4>
-                <div class="input-group mb-4">
-                    <input class="form-control" type="text" value="+86 202 761 6982" aria-label="Disabled input example" disabled readonly>
-                </div>
-
-                <h4>Tahun Berdiri:</h4>
-                <div class="input-group mb-4">
-                    <input class="form-control" type="text" value="2006" aria-label="Disabled input example" disabled readonly>
-                </div>
-
-                <h4>Foto Akta Pendirian:</h4>
-                <div class="input-group mb-4">
-                    <input class="form-control" type="text" value="Akta.jpg" aria-label="Disabled input example" disabled readonly>
-                </div>
-
-            -->
+           
 
 <!--                Jenis Individu -->
+            <div>
+                { % if request.session.role == 'INDIVIDU' % }
+                <h4>NIK:</h4>
+                <div class="input-group mb-4">
+                    <input class="form-control" type="text" value="{{ role.nik }}" aria-label="Disabled input example" disabled readonly>
+                </div>
 
-            <h4>NIK:</h4>
-            <div class="input-group mb-4">
-                <input class="form-control" type="text" value="12345678092874" aria-label="Disabled input example" disabled readonly>
-            </div>
+                <h4>Tanggal Lahir:</h4>
+                <div class="input-group mb-4">
+                    <input class="form-control" type="text" value="{{ role.tanggal_lahir }}" aria-label="Disabled input example" disabled readonly>
+                </div>
 
-            <h4>Tanggal Lahir:</h4>
-            <div class="input-group mb-4">
-                <input class="form-control" type="text" value="30 Oktober 1976" aria-label="Disabled input example" disabled readonly>
-            </div>
+                <h4>Jenis Kelamin:</h4>
+                <div class="input-group mb-4">
+                    <input class="form-control" type="text" value="{{ role.jenis_kelamin }}" aria-label="Disabled input example" disabled readonly>
+                </div>
 
-            <h4>Jenis Kelamin:</h4>
-            <div class="input-group mb-4">
-                <input class="form-control" type="text" value="Laki-laki" aria-label="Disabled input example" disabled readonly>
-            </div>
-
-            <h4>Foto KTP:</h4>
-            <div class="input-group mb-4">
-                <input class="form-control" type="text" value="FotoKTP.jpg" aria-label="Disabled input example" disabled readonly>
+                <h4>Foto KTP:</h4>
+                <div class="input-group mb-4">
+                    <input class="form-control" type="text" value="FotoKTP.jpg" aria-label="Disabled input example" disabled readonly>
+                </div>
+                { % end if % }
             </div>
 
 <!--        Semua Jenis -->
 
             <h4>Saldo Donapay:</h4>
             <div class="input-group mb-4">
-                <input class="form-control" type="text" value="Rp1.000.000" aria-label="Disabled input example" disabled readonly>
+                <input class="form-control" type="text" value="{{ user.saldo_dona_pay }}" aria-label="Disabled input example" disabled readonly>
             </div>
-          
-            <h5>Wishlist Donasi:</h5>
+            
+            <div>
+                <h5>Wishlist Donasi:</h5>
 
-            <di v class="container d-flex justify-content-center" align="center">
-                <table class="table table-bordered table-responsive-xl" align="center">
-                    <thead class="thead-light">
-                        <th><center>ID</center></th>
-                        <th><center>Judul</center></th>
-                        <th><center>Kategori</center></th>
-                        <th><center>Action</center></th>
-        
-                    </thead>
-                        <tr>
-                        <td>K-001</td>
-                        <td>Ayo bantu Zulfahri menghadapi penyakit Demam Berdarahnya!</td>
-                        <td>Kesehatan</td>
-                        <td>
-                            <form action="{% url 'trigger_dua:read_pdd' %}" method="get">
-                                <input type="hidden" id="id_u" name="id_u">
-                                <input type="submit" class="btn btn-success btn-sm" value="Detail">
-                            </form>
-        
-                            <form action="{% url 'trigger_empat:form_donasi' %}" method="get">
-                                <input type="hidden" id="id_d" name="id_d" value = {{row.id}}>
-                                <input type="submit" class="btn btn-danger btn-sm" value="Donasi">
-                            </form>
-        
-                            <form action="{% url 'trigger_empat:delete_wishlist' %}" method="get">
-                                <input type="hidden" id="id_c" name="id_c" value = {{row.id}}>
-                                <input type="submit" class="btn btn-warning btn-sm" value="Delete">
-                            </form>
-                        </td>
-                        </tr>
-        
-                        <!-- skenario update -->
-                        <tr>
-                            <td>R-001</td>
-                            <td>Bangun masjid untuk Desa Maju</td> 
-                            <td>Rumah Ibadah</td>
-                            <!-- if belum terverifikasi nanti ada tombol "verifikasi" -->
+                <div class="container d-flex justify-content-center" align="center">
+                    <table class="table table-bordered table-responsive-xl" align="center">
+                        <thead class="thead-light">
+                            <th><center>ID</center></th>
+                            <th><center>Judul</center></th>
+                            <th><center>Kategori</center></th>
+                            <th><center>Action</center></th>
+            
+                        </thead>
+                            <tr>
+                            <td>K-001</td>
+                            <td>Ayo bantu Zulfahri menghadapi penyakit Demam Berdarahnya!</td>
+                            <td>Kesehatan</td>
                             <td>
-                                <!-- detail -->
-                                <form action="{% url 'trigger_tiga:detail2-daftar-penggalangan-dana' %}" method="get">
+                                <form action="{% url 'trigger_dua:read_pdd' %}" method="get">
                                     <input type="hidden" id="id_u" name="id_u">
                                     <input type="submit" class="btn btn-success btn-sm" value="Detail">
                                 </form>
+            
                                 <form action="{% url 'trigger_empat:form_donasi' %}" method="get">
                                     <input type="hidden" id="id_d" name="id_d">
                                     <input type="submit" class="btn btn-danger btn-sm" value="Donasi">
                                 </form>
             
-                                <form action="{% url 'trigger_empat:delete_wishlist' %}" method="get">
+                                <form action="" method="get">
                                     <input type="hidden" id="id_c" name="id_c">
                                     <input type="submit" class="btn btn-warning btn-sm" value="Delete">
                                 </form>
                             </td>
                             </tr>
-                </table>
-        
-            </div>
-        
-            <div class="container justify-content text-left mb-5">
-                <h6><strong>Jumlah Wishlist: 2</strong></h6>
+            
+                            <!-- skenario update -->
+                            <tr>
+                                <td>R-001</td>
+                                <td>Bangun masjid untuk Desa Maju</td> 
+                                <td>Rumah Ibadah</td>
+                                <!-- if belum terverifikasi nanti ada tombol "verifikasi" -->
+                                <td>
+                                    <!-- detail -->
+                                    <form action="{% url 'trigger_tiga:detail2-daftar-penggalangan-dana' %}" method="get">
+                                        <input type="hidden" id="id_u" name="id_u">
+                                        <input type="submit" class="btn btn-success btn-sm" value="Detail">
+                                    </form>
+                                    <form action="{% url 'trigger_empat:form_donasi' %}" method="get">
+                                        <input type="hidden" id="id_d" name="id_d">
+                                        <input type="submit" class="btn btn-danger btn-sm" value="Donasi">
+                                    </form>
+                
+                                    <form action="" method="get">
+                                        <input type="hidden" id="id_c" name="id_c">
+                                        <input type="submit" class="btn btn-warning btn-sm" value="Delete">
+                                    </form>
+                                </td>
+                                </tr>
+                    </table>
+            
+                </div>
+            
+                <div class="container justify-content text-left mb-5">
+                    <h6><strong>Jumlah Wishlist: {{ }}</strong></h6>
+                </div>
             </div>
 
             <input class="btn btn-danger mb-5" type="submit" value="Cancel">

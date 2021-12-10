@@ -184,7 +184,7 @@ def read_daftar_pengguna_admin_afterverif(request):
     with connection.cursor() as cursor:
         cursor.execute("SELECT email, nama, jenis, status_verifikasi "
                        "FROM PENGGALANG_DANA "
-                       "WHERE status_verifikasi = 'Terferifikasi';")
+                       "WHERE status_verifikasi = 'VERIFIED';")
         data_pengguna= cursor_fetchall(cursor)
     context = {'data': data_pengguna}
     return render(request, 'read_daftar_pengguna_admin_afterverif.html')
