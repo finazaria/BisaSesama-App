@@ -26,8 +26,8 @@ def read_daftar_penggalangan_dana_admin(request):
         context['data_pd'] = data
     return render(request, 'read_daftar_penggalangan_dana_admin.html', context)
 
-# def read_afterverif_penggalangan_dana_admin(request):
-#     return render(request, 'read_afterverif_daftar_penggalangan_dana_admin.html')
+def read_afterverif_penggalangan_dana_admin(request):
+    return render(request, 'read_afterverif_daftar_penggalangan_dana_admin.html')
 
 def detail1_daftar_penggalangan_dana(request):
     return render(request, 'detail1_daftar_penggalangan_dana_admin.html')

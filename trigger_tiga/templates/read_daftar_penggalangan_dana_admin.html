@@ -49,7 +49,7 @@
 
                         {% if r.6 == "Belum verifikasi" %}
                         <form action="{% url 'trigger_tiga:form-verifikasi-penggalangan-dana' %}" method="get">
-                            <input type="hidden" id="id_u" name="id_u">
+                            <input type="hidden" id="id_u" name="id_u" value="{{ r.0 }}">
                             <input type="submit" class="btn btn-primary btn-sm" value="Verifikasi">
                         </form>
                         {% endif %}
@@ -64,32 +64,6 @@
                         </form> -->
                     </td>
                 </tr>
-            <tr>
-            <td>R-001</td>
-            <td>Bangun masjid untuk Desa Maju</td>
-            <td>Jakarta</td>
-            <td>DKI Jakarta</td>
-            <td> </td> 
-            <!-- tanggal aktif awal masih kosong karena blm di verif -->
-            <td>10 Desember 2021</td>
-            <!-- sisa hari masih kosong karena blm di-verif -->
-            <td> </td>
-            <td>Rp 10.000.000,-</td>
-            <td>Rumah Ibadah</td>
-            <!-- if belum terverifikasi nanti ada tombol "verifikasi" -->
-            <td>Belum Terverifikasi</td>
-            <td>
-                <!-- detail -->
-                <form action="{% url 'trigger_tiga:detail2-daftar-penggalangan-dana' %}" method="get">
-                    <input type="hidden" id="id_u" name="id_u">
-                    <input type="submit" class="btn btn-success btn-sm" value="Detail">
-                </form>
-                <form action="{% url 'trigger_tiga:form-verifikasi-penggalangan-dana' %}" method="get">
-                    <input type="hidden" id="id_u" name="id_u">
-                    <input type="submit" class="btn btn-primary btn-sm" value="Verifikasi">
-                </form>
-            </td>
-            </tr>
         </table>
     </div>
 {% endblock %}
