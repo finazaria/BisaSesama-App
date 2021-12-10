@@ -206,3 +206,6 @@ def read_daftar_pengguna_admin_afterverif(request):
     context = {'data': data_pengguna}
     return render(request, 'read_daftar_pengguna_admin_afterverif.html',context)
 
+def logout(request):
+    request.session.flush()
+    return redirect('/')

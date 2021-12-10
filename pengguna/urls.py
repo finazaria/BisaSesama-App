@@ -15,6 +15,8 @@ urlpatterns = [
     path("profil-pengguna-individu-adminview", profil_pengguna_individu_adminview, name="profil-pengguna-individu-adminview"),
     path("profil-pengguna-organisasi-adminview", profil_pengguna_organisasi_adminview, name="profil-pengguna-organisasi-adminview"),
     path("daftar-pengguna-admin-verif", verifikasi_pengguna, name="daftar-pengguna-admin-verif"),
+    path("logout", logout, name = "logout"),
+    path("login", login, name = "login"),
     
 
 

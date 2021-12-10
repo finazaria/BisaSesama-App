@@ -87,7 +87,7 @@ def read_detail_donasi(request):
     context = {'data' : datum}
         
     return render(request,'read_detail_donasi.html' ,context)
-
+@pengguna
 def delete_wishlist_donasi(request):
     with connection.cursor() as cursor:
         cursor.execute("SET SEARCH_PATH TO TK_SIDONA DELETE FROM WISHLIST_DONASI WHERE email =%s AND idpd = %s;",
