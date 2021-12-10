@@ -18,27 +18,27 @@
 
                 <h4>NIK:</h4>
                 <div class="input-group mb-4">
-                    <input class="form-control" type="text" aria-label="default input example" required>
+                    <input class="form-control" type="text" aria-label="default input example"  name="nik" value="{{request.POST.nik}}" required>
                 </div>
 
                 <h4>Nama: </h4>
                 <div class="input-group mb-4">
-                    <input class="form-control" type="text" aria-label="default input example" required>
+                    <input class="form-control" type="text" aria-label="default input example"  name="nama" value="{{request.POST.nama}}" required>
                 </div>
 
                 <h4>Tanggal Lahir:</h4>
                 <div class="input-group mb-4">
-                    <input class="form-control" type="text" aria-label="default input example" required>
+                    <input class="form-control" type="text" aria-label="default input example"  name="tanggal_lahir" value="{{request.POST.tanggal_lahir}}" required>
                 </div>
 
                 <h4>Alamat:</h4>
                 <div class="input-group mb-4">
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" required></textarea>
+                    <input class="form-control" type="text" aria-label="default input example" name="alamat" value="{{request.POST.alamat}}" required>
                 </div>
 
                 <h4>Pekerjaan:</h4>
                 <div class="input-group mb-4">
-                    <input class="form-control" type="text" aria-label="default input example" required>
+                    <input class="form-control" type="text" aria-label="default input example" name="pekerjaan" value="{{request.POST.pekerjaan}}" required>
                 </div>
 
             </div>

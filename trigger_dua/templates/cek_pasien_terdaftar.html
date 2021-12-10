@@ -11,6 +11,13 @@
     <div class="container d-flex justify-content-center" align="center">
         <form action="{% url 'trigger_dua:read_pdd' %}" method="post">
             {% csrf_token %}
+
+            {% if form.non_field_errors %}
+            <div class="alert alert-danger" role="alert">
+            {{ form.non_field_errors }}
+            </div>
+            {% endif %}
+
             <h4>NIK Pasien:</h4>
             <div class="input-group mb-3">
                 <input class="form-control" type="text" aria-label="default input example" required>

@@ -10,17 +10,19 @@
     </div>
 
     <div class="container d-flex justify-content-center" align="center">
-        <form action="{% url 'trigger_dua:update_komorbid' %}" method="post">
+        <form action="{% url 'trigger_dua:update_komorbid' id penyakit %}" method="POST">
+            {% csrf_token %}
+
             <h4>ID Penggalangan Dana:</h4>
             <div class="input-group mb-3">
-                <input class="form-control" type="text" value="K-001" aria-label="Disabled input example" disabled readonly>
+                <input class="form-control" type="text" value="{{id}}" aria-label="Disabled input example" disabled readonly>
             </div>
 
             <br>
 
             <h4>Nama Penyakit:</h4>
             <div class="input-group mb-3">
-                <input class="form-control" type="text" value="Pusing Kepala" aria-label="default input example" required>
+                <input class="form-control" type="text" aria-label="penyakit" name="penyakit" value="{{request.POST.penyakit}}" placeholder="{{penyakit}}" required>
             </div>
             <br>
 

@@ -9,19 +9,19 @@
     </div>
 
     <div class="container d-flex justify-content-center" align="center">
-        <form action="{% url '' %}" method="POST">
+        <form action="{% url 'login:login' %}" method="POST">
             {% csrf_token %}
 
             <div class="form-group row">
 
                 <h4>Email:</h4>
                 <div class="input-group mb-4">
-                    <input class="form-control" type="text" aria-label="default input example" required>
+                    {{ form.email }}
                 </div>
 
                 <h4>Password: </h4>
                 <div class="input-group mb-4">
-                    <input class="form-control" type="password" aria-label="default input example" required>
+                    {{ form.password }}
                 </div>
 
             </div>

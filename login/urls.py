@@ -5,6 +5,7 @@ app_name = 'login'
 
 urlpatterns = [
     path("", login, name="login"),
+    path("logout/", logout, name="logout"),
 
 ]
     # path("form_donasi/", form_donasi, name="form_donasi"),

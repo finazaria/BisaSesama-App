@@ -4,9 +4,14 @@
 {% block title %}Home - BisaSesama{% endblock %}
 
 {% block content %}
-<div class='bg-primary jumbotron justify-content-center text-white  ' align="center">
+<div class='bg-primary jumbotron justify-content-center text-white' align="center">
     <h4>SIDONA BisaSesama</h4>
     <hr>
+    {% if request.session.role == None %}
     <h1>Selamat Datang!</h1>
+    {% else %}
+    <h1>Selamat Datang, {{request.session.nama}}!</h1>
+    {% endif %}
+
 </div>
 {% endblock %}

@@ -9,9 +9,11 @@
         <h3>BisaBersama</h3>
     </div>
 
+    {% if request.session.role == 'PENGGALANG_DANA' %}
     <div class="container justify-content text-right mb-4">
         <a href="./create/" class="btn btn-primary btn active" role="button" aria-pressed="true">Tambah Penyakit Komorbid Baru</a>
     </div>
+    {% endif %}
 
     <div class="container d-flex justify-content-center" align="center">
         <table class="table table-bordered table-responsive-xl" align="center">
@@ -20,25 +22,31 @@
                 <th><center>Judul</center></th>
                 <th><center>Penyakit Utama</center></th>
                 <th><center>Penyakit Komorbid</center></th>
+                {% if request.session.role == 'PENGGALANG_DANA' %}
                 <th><center>Action</center></th>
+                {% endif %}
             </thead>
+            {% for row in data %}
                 <tr>
-                <td>K-001</td>
-                <td>Ayo bantu Zulfahri menghadapi penyakit Demam Berdarahnya!</td>
-                <td>Demam Berdarah</td>
-                <td>Pusing Kepala</td>
+                <td>{{ row.id }}</td>
+                <td>{{ row.judul }}</td>
+                <td>{{ row.penyakit }}</td>
+                <td>{{ row.komorbid }}</td>
+                    {% if request.session.role == 'PENGGALANG_DANA' %}
                 <td>
-                    <form action="{% url 'trigger_dua:update_komorbid' %}" method="get">
+                    <form action="{% url 'trigger_dua:update_komorbid' row.id row.penyakit %}" method="get">
                         <input type="hidden" id="id_u" name="id_u">
                         <input type="submit" class="btn btn-success btn-sm" value="Update">
                     </form>
 
-                    <form action="{% url 'trigger_dua:delete_komorbid' %}" method="get">
+                    <form action="{% url 'trigger_dua:delete_komorbid' row.id row.komorbid %}" method="get">
                         <input type="hidden" id="id_d" name="id_d">
                         <input type="submit" class="btn btn-danger btn-sm" value="Delete">
                     </form>
                 </td>
+                {% endif %}
                 </tr>
+            {% endfor %}
         </table>
     </div>
 {% endblock %}

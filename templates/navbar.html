@@ -21,7 +21,7 @@
 
             <a class="dropdown-item " href="{% url 'trigger_tiga:daftar-penggalangan-dana-admin' %}">Daftar Penggalangan Dana - Admin</a>
             {% endif %}
-            {% if request.session.role == 'INDIVIDU' %}
+            {% if request.session.role_pdd == 'INDIVIDU' %}
             <a class="dropdown-item " href="{% url 'trigger_empat:read_halaman_penggalangan_dana' %}">Daftar Penggalangan Dana - Pengguna</a>
             {% endif %}
             <a class="dropdown-item " href="{% url 'trigger_dua:read_komorbid' %}">Kelola Penyakit Komorbid</a>
@@ -38,7 +38,7 @@
         </div>
         </li>
         
-        {% if request.session.role == 'INDIVIDU' %}
+        {% if request.session.role_pdd == 'INDIVIDU' %}
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Donasi
@@ -62,12 +62,12 @@
             <i class="d-inline-block align-center fa text-white"></i>
             Profil
         </a>
-        <a style="font-size: medium;" class="navbar-brand text-white" href="{% url 'pengguna:logout' %}">
+        <a style="font-size: medium;" class="navbar-brand text-white" href="{% url 'login:logout' %}">
             <i class="d-inline-block align-center fa text-white"></i>
-            Logout
+            Log out
         </a>
         {% else %}
-        <a style="font-size: medium;" class="navbar-brand text-white" href="{% url 'pengguna:login' %}">
+        <a style="font-size: medium;" class="navbar-brand text-white" href="{% url 'login:login' %}">
             <i class="d-inline-block align-center fa text-white"></i>
             Login
         </a>
