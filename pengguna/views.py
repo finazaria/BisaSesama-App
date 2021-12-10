@@ -40,6 +40,14 @@ def dapatkan_role(email, role):
             [email])
         return cursor.fetchone()
 
+def dapatkan_pd_donasi(email):
+    with connection.cursor() as cursor:
+        cursor.execute(
+            f"SELECT * FROM PENGGALANGAN_DANA_PD JOIN KATEGORI as PDK, INDIVIDU as I, DONASI as D WHERE I.email=%s AND I.email=D.email AND D.idPD=PDK.id;",
+            [email]
+        )
+        return cursor.fetchone()
+
 def input_session(request, email, nama):
     request.session['email'] = email
     request.session['nama'] = nama
@@ -144,6 +152,9 @@ def profil_pengguna(request):
             request.session.get("email"),
             request.session.get("role"))
     context = {'user': data_pengguna, 'role': role_pengguna}
+    
+    if request.session.get('role') == 'INDIVIDU':
+        context['data_pd_donasi'] = dapatkan_pd_donasi(context['user'][0])
     return render(request, 'profil_pengguna.html', context)
 
 @pengguna

@@ -125,10 +125,11 @@
                             <th><center>Action</center></th>
             
                         </thead>
+                            { % for data in data_pd_donasi % }
                             <tr>
-                            <td>K-001</td>
-                            <td>Ayo bantu Zulfahri menghadapi penyakit Demam Berdarahnya!</td>
-                            <td>Kesehatan</td>
+                            <td>{{ data.id }}</td>
+                            <td>{{ data.judul }}</td>
+                            <td>{{ data.nama_kategori }}</td>
                             <td>
                                 <form action="{% url 'trigger_dua:read_pdd' %}" method="get">
                                     <input type="hidden" id="id_u" name="id_u">
@@ -139,7 +140,7 @@
                                     <input type="hidden" id="id_d" name="id_d">
                                     <input type="submit" class="btn btn-danger btn-sm" value="Donasi">
                                 </form>
-            
+
                                 <form action="" method="get">
                                     <input type="hidden" id="id_c" name="id_c">
                                     <input type="submit" class="btn btn-warning btn-sm" value="Delete">
@@ -147,14 +148,14 @@
                             </td>
                             </tr>
             
-                            <!-- skenario update -->
+                            <!-- skenario update 
                             <tr>
                                 <td>R-001</td>
                                 <td>Bangun masjid untuk Desa Maju</td> 
                                 <td>Rumah Ibadah</td>
-                                <!-- if belum terverifikasi nanti ada tombol "verifikasi" -->
+                                    if belum terverifikasi nanti ada tombol "verifikasi" 
                                 <td>
-                                    <!-- detail -->
+                                    detail
                                     <form action="{% url 'trigger_tiga:detail2-daftar-penggalangan-dana' %}" method="get">
                                         <input type="hidden" id="id_u" name="id_u">
                                         <input type="submit" class="btn btn-success btn-sm" value="Detail">
@@ -170,12 +171,13 @@
                                     </form>
                                 </td>
                                 </tr>
+                            -->
                     </table>
             
                 </div>
             
                 <div class="container justify-content text-left mb-5">
-                    <h6><strong>Jumlah Wishlist: {{ }}</strong></h6>
+                    <h6><strong>Jumlah Wishlist: {{ role.jumlah_wishlist }}</strong></h6>
                 </div>
             </div>
 
