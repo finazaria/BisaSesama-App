@@ -14,14 +14,16 @@
         Penggalangan Dana
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            {% if request.session.role == 'ADMIN' %}
+            {% if request.session.role == 'PENGGALANG_DANA' %}
             <a class="dropdown-item " href="{% url 'trigger_dua:form_kategori' %}">Buat Penggalangan Dana</a>
+            {% endif %}
 
+            {% if request.session.role == 'ADMIN' %}
             <a class="dropdown-item " href="{% url 'trigger_tiga:read-kategori-penggalangan-dana-admin' %}">Kategori Penggalangan Dana</a>
 
             <a class="dropdown-item " href="{% url 'trigger_tiga:daftar-penggalangan-dana-admin' %}">Daftar Penggalangan Dana - Admin</a>
             {% endif %}
-            {% if request.session.role_pdd == 'INDIVIDU' %}
+            {% if request.session.role == 'PENGGALANG_DANA' %}
             <a class="dropdown-item " href="{% url 'trigger_empat:read_halaman_penggalangan_dana' %}">Daftar Penggalangan Dana - Pengguna</a>
             {% endif %}
             <a class="dropdown-item " href="{% url 'trigger_dua:read_komorbid' %}">Kelola Penyakit Komorbid</a>
@@ -37,7 +39,7 @@
             <a class="dropdown-item " href="{% url 'trigger_dua:read_pdd_pribadi' %}">Daftar Penggalangan Dana Pribadi</a>
         </div>
         </li>
-        
+
         {% if request.session.role_pdd == 'INDIVIDU' %}
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

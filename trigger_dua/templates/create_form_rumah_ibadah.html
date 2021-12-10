@@ -11,29 +11,29 @@
     </div>
 
     <div class="container d-flex justify-content-center" align="center">
-        <form action="{% url 'trigger_dua:create_pdd' %}" method="POST">
+        <form action="{% url 'trigger_dua:form_rumah_ibadah' %}" method="POST">
             {% csrf_token %}
 
             <div class="form-group row">
 
                 <h4>Nomor Sertifikat:</h4>
                 <div class="input-group mb-4">
-                    <input class="form-control" type="text" aria-label="default input example" required>
+                    <input class="form-control" type="text" aria-label="default input example" name="no_sertif" value="{{request.POST.no_sertif}}"  required>
                 </div>
 
                 <h4>Nama: </h4>
                 <div class="input-group mb-4">
-                    <input class="form-control" type="text" aria-label="default input example" required>
+                    <input class="form-control" type="text" aria-label="default input example" name="nama" value="{{request.POST.nama}}" required>
                 </div>
 
                 <h4>Alamat:</h4>
                 <div class="input-group mb-4">
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" required></textarea>
+                    <input class="form-control" type="text" aria-label="default input example" name="alamat" value="{{request.POST.alamat}}" required>
                 </div>
 
                 <h4>Jenis:</h4>
                 <div class="input-group mb-4">
-                    <input class="form-control" type="text" aria-label="default input example" required>
+                    <input class="form-control" type="text" aria-label="default input example" name="jenis" value="{{request.POST.jenis}}"  required>
                 </div>
 
             </div>

@@ -9,11 +9,11 @@
     </div>
 
     <div class="container d-flex justify-content-center" align="center">
-        <form action="{% url 'trigger_dua:read_pdd' %}" method="post">
+        <form action="{% url 'trigger_dua:cek_rumah_ibadah' %}" method="post">
             {% csrf_token %}
             <h4>Nomor Sertifikat Rumah Ibadah:</h4>
             <div class="input-group mb-3">
-                <input class="form-control" type="text" aria-label="default input example" required>
+                <input class="form-control" type="text" aria-label="default input example" name="cek_rumah_ibadah" value="{{request.POST.cek_rumah_ibadah}}" required>
             </div>
             <br>
 

@@ -17,18 +17,15 @@
         </div>
 
         <div class="container d-flex justify-content-center" align="center">
-            <form action="/trigger_dua" id="form-action" method="post">
+            <form action="{% url 'trigger_dua:form_kategori' %}" id="form-action" method="post">
                 {% csrf_token %}
                 <h4>Kategori:</h4>
-                <select id="kategori" class="form-control" aria-label="Default select example" required>
-                  <option selected>Pilih Kategori</option>
-                  <option value="1">Kesehatan</option>
-                  <option value="2">Rumah Ibadah</option>
-                  <option value="3">Bencana</option>
-                  <option value="4">Pendidikan</option>
-                  <option value="5">Sosial</option>
+                <select id="kategori" name="kategori" value="{{request.POST.kategori}}" class="form-control" required>
+                    <option value="" selected>Pilih Kategori</option>
+                    {% for nama_kategori in kategori %}
+                    <option value={{nama_kategori.0}}>{{nama_kategori.1}}</option>
+                    {% endfor %}
                 </select>
-
                 <br>
                 <br>
 
@@ -55,9 +52,9 @@
             });
 
             function myFunction() {
-                if (pilihan == "1") {
+                if (pilihan == "366645343") {
                     $("#pasien").modal("show");
-                } else if (pilihan == "2"){
+                } else if (pilihan == "474877486"){
                     $("#rumah_ibadah").modal("show");
                 } else {
                     location.replace("/trigger_dua/penggalangan_dana/create")
