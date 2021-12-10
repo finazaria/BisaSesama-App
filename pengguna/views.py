@@ -56,20 +56,23 @@ def input_session(request, email, nama):
 
 @tidak_ada_pengguna
 def login(request):
-    if request.method == 'POST':
+    if request.method == 'POST':        # Method post untuk mem-post data yang kita masukkan, untuk kemudian di-validasi
         form = LoginForm(request.POST)
-        if form.is_valid():
+        if form.is_valid():             # Jika form valid -> maka:
             with connection.cursor() as cursor:
+                # Mengambil data penggalang_dana yang sesuai dengan email yang telah di-input oleh user
                 cursor.execute(
                     "SELECT * FROM PENGGALANG_DANA WHERE email=%s LIMIT 1;",
-                    [form.cleaned_data.get('email')])
-                data = cursor.fetchone()
+                    [form.cleaned_data.get('email')])                           
+                data = cursor.fetchone()                # Menyimpan semua data tersebut ke dalam variabel 'data'
             input_session(request, form.cleaned_data.get('email'), data[3])
-            return redirect('/profile_pengguna/')
-    elif request.method == 'GET':
+            return redirect('/profile_pengguna/')       # Setelah berhasil login, langsung diarahkan ke halaman profil pengguna user tersebut
+    
+    elif request.method == 'GET':   
         form = LoginForm()
-    context = {'form': form}
-    return render(request, "login.html", context)
+    context = {'form': form}        # Dengan method GET, semua data login yang telah ada dimasukkan ke dalam context
+                                    # dengan variable 'form'.
+    return render(request, "login.html", context)       # Data form tersebut kemudian di-render ke 'login.html'
 
 @tidak_ada_pengguna
 def register(request):
