@@ -21,55 +21,55 @@
 
                 <h4>Nama:</h4>
                 <div class="input-group mb-4">
-                    <input class="form-control" type="text" value="{{ user.nama_lengkap }}" aria-label="Disabled input example" disabled readonly>
+                    <input class="form-control" type="text" value="{{ user.2 }}" aria-label="Disabled input example" disabled readonly>
                 </div>
 
                 <h4>Nomor HP:</h4>
                 <div class="input-group mb-4">
-                    <input class="form-control" type="text" value="{{ user.nomor_hp }}" aria-label="Disabled input example" disabled readonly>
+                    <input class="form-control" type="text" value="{{ user.3 }}" aria-label="Disabled input example" disabled readonly>
                 </div>
 
                 <h4>Alamat:</h4>
                 <div class="input-group mb-4">
-                    <input class="form-control" type="text" value="{{ user.alamat }}" aria-label="Disabled input example" disabled readonly>
+                    <input class="form-control" type="text" value="{{ user.4 }}" aria-label="Disabled input example" disabled readonly>
                 </div>
 
                 <h4>Nama Bank:</h4>
                 <div class="input-group mb-4">
-                    <input class="form-control" type="text" value="{{ user.nama_bank }}" aria-label="Disabled input example" disabled readonly>
+                    <input class="form-control" type="text" value="{{ user.7 }}" aria-label="Disabled input example" disabled readonly>
                 </div>
 
                 <h4>No. Rekening:</h4>
                 <div class="input-group mb-4">
-                    <input class="form-control" type="text" value="{{ user.nomor_rekening }}" aria-label="Disabled input example" disabled readonly>
+                    <input class="form-control" type="text" value="{{ user.6 }}" aria-label="Disabled input example" disabled readonly>
                 </div>
 
                 <!-- Peran : Individu atau Organisasi -->
                 <h4>Jenis:</h4>
                 <div class="input-group mb-4">
-                    <input class="form-control" type="text" value="{{ user.peran }}" aria-label="Disabled input example" disabled readonly>
+                    <input class="form-control" type="text" value="{{ role }}" aria-label="Disabled input example" disabled readonly>
                 </div>
 
                 <div>
                     { % if request.session.role == 'ORGANISASI' % }
                         <h4>Nama Organisasi:</h4>
                         <div class="input-group mb-4">
-                            <input class="form-control" type="text" value="{{ role.nama_organisasi }}" aria-label="Disabled input example" disabled readonly>
+                            <input class="form-control" type="text" value="{{ role.2 }}" aria-label="Disabled input example" disabled readonly>
                         </div>
 
                         <h4>Nomor Akta Pendirian:</h4>
                         <div class="input-group mb-4">
-                            <input class="form-control" type="text" value="{{ role.nomor_akta_pendirian }}" aria-label="Disabled input example" disabled readonly>
+                            <input class="form-control" type="text" value="{{ role.1 }}" aria-label="Disabled input example" disabled readonly>
                         </div>
 
                         <h4>No. Telepon Organisasi:</h4>
                         <div class="input-group mb-4">
-                            <input class="form-control" type="text" value="{{ role.nomor_telp_organisasi }}" aria-label="Disabled input example" disabled readonly>
+                            <input class="form-control" type="text" value="{{ role.3 }}" aria-label="Disabled input example" disabled readonly>
                         </div>
 
                         <h4>Tahun Berdiri:</h4>
                         <div class="input-group mb-4">
-                            <input class="form-control" type="text" value="2006" aria-label="{{ role.tahun_berdiri }}" disabled readonly>
+                            <input class="form-control" type="text" value="2006" aria-label="{{ role.4 }}" disabled readonly>
                         </div>
 
                         <h4>Foto Akta Pendirian:</h4>
@@ -85,17 +85,17 @@
                 { % if request.session.role == 'INDIVIDU' % }
                 <h4>NIK:</h4>
                 <div class="input-group mb-4">
-                    <input class="form-control" type="text" value="{{ role.nik }}" aria-label="Disabled input example" disabled readonly>
+                    <input class="form-control" type="text" value="{{ role.1 }}" aria-label="Disabled input example" disabled readonly>
                 </div>
 
                 <h4>Tanggal Lahir:</h4>
                 <div class="input-group mb-4">
-                    <input class="form-control" type="text" value="{{ role.tanggal_lahir }}" aria-label="Disabled input example" disabled readonly>
+                    <input class="form-control" type="text" value="{{ role.2 }}" aria-label="Disabled input example" disabled readonly>
                 </div>
 
                 <h4>Jenis Kelamin:</h4>
                 <div class="input-group mb-4">
-                    <input class="form-control" type="text" value="{{ role.jenis_kelamin }}" aria-label="Disabled input example" disabled readonly>
+                    <input class="form-control" type="text" value="{{ role.3 }}" aria-label="Disabled input example" disabled readonly>
                 </div>
 
                 <h4>Foto KTP:</h4>
@@ -109,7 +109,7 @@
 
             <h4>Saldo Donapay:</h4>
             <div class="input-group mb-4">
-                <input class="form-control" type="text" value="{{ user.saldo_dona_pay }}" aria-label="Disabled input example" disabled readonly>
+                <input class="form-control" type="text" value="{{ user.5 }}" aria-label="Disabled input example" disabled readonly>
             </div>
             
             <div>
@@ -126,9 +126,9 @@
                         </thead>
                             { % for data in data_pd_donasi % }
                             <tr>
-                                <td>{{ data.id }}</td>
-                                <td>{{ data.judul }}</td>
-                                <td>{{ data.nama_kategori }}</td>
+                                <td>{{ data.0 }}</td>
+                                <td>{{ data.1 }}</td>
+                                <td>{{ data.17 }}</td>
                                 <td>
                                     <form action="{% url 'trigger_dua:read_pdd' %}" method="get">
                                         <input type="hidden" id="id_u" name="id_u">

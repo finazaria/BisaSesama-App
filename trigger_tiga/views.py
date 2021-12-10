@@ -1,11 +1,33 @@
+from django.db import connection
 from django.shortcuts import render
-from django.contrib.auth.decorators import login_required
 
+from pengguna.views import admin
+
+with connection.cursor() as cursor:
+        cursor.execute(
+            """
+            SET SEARCH_PATH TO TK_SIDONA;
+            """
+        )
+
+@admin
 def read_daftar_penggalangan_dana_admin(request):
-    return render(request, 'read_daftar_penggalangan_dana_admin.html')
+    context = {}
+    with connection.cursor() as cursor:
+        cursor.execute(
+            """
+            SELECT * FROM PENGGALANGAN_DANA_PD;
+            """
+        )
+        
+        data = cursor.fetchall()
+        print(data)
 
-def read_afterverif_penggalangan_dana_admin(request):
-    return render(request, 'read_afterverif_daftar_penggalangan_dana_admin.html')
+        context['data_pd'] = data
+    return render(request, 'read_daftar_penggalangan_dana_admin.html', context)
+
+# def read_afterverif_penggalangan_dana_admin(request):
+#     return render(request, 'read_afterverif_daftar_penggalangan_dana_admin.html')
 
 def detail1_daftar_penggalangan_dana(request):
     return render(request, 'detail1_daftar_penggalangan_dana_admin.html')

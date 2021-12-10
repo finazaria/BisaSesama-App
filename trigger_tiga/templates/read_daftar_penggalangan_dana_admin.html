@@ -6,7 +6,7 @@
 {% block content %}
     <div class='bg-primary jumbotron justify-content-center text-white' align="center">
         <h1>Halaman Daftar Penggalangan Dana</h1>
-        <h1>(POV Admin Sistem)</h1>
+        <!-- Admin View -->
         <h3>BisaBersama</h3>
     </div>
 
@@ -27,34 +27,42 @@
                 <th><center>Action</center></th>
 
             </thead>
+                {% csrf_token %}
+                {% for r in data_pd %}
                 <tr>
-                <td>K-001</td>
-                <td>Ayo bantu Zulfahri menghadapi penyakit Demam Berdarahnya!</td>
-                <td>Bandung</td>
-                <td>Jawa Barat</td>
-                <td>15 November 2021</td>
-                <td>7 Desember 2021</td>
-                <td>20 hari</td>
-                <td>Rp 1.000.000,-</td>
-                <td>Kesehatan</td>
-                <td>Sudah Terverifikasi</td>
-                <td>
-                    <!-- detail -->
-                    <form action="{% url 'trigger_tiga:detail1-daftar-penggalangan-dana' %}" method="get">
-                        <input type="hidden" id="id_u" name="id_u">
-                        <input type="submit" class="btn btn-success btn-sm" value="Detail">
-                    </form>
+                    <td>{{ r.0 }}</td>
+                    <td>{{ r.1 }}</td>
+                    <td>{{ r.3 }}</td>
+                    <td>{{ r.4 }}</td>
+                    <td>{{ r.8 }}</td>
+                    <td>{{ r.9 }}</td>
+                    <td>{{ r.13 }}</td>
+                    <td>{{ r.14 }}</td>
+                    <td>{{ r.2 }}</td>
+                    <td>{{ r.6 }}</td>
+                    <td>
+                        <!-- detail -->
+                        <form action="{% url 'trigger_tiga:detail1-daftar-penggalangan-dana' %}" method="get">
+                            <input type="hidden" id="id_u" name="id_u">
+                            <input type="submit" class="btn btn-success btn-sm" value="Detail">
+                        </form>
 
-                    <!-- <form action="{% url 'trigger_dua:delete_pdd' %}" method="get">
-                        <input type="hidden" id="id_d" name="id_d">
-                        <input type="submit" class="btn btn-danger btn-sm" value="Delete">
-                    </form>
+                        {% if r.6 == "Belum verifikasi" %}
+                        <form action="{% url 'trigger_tiga:form-verifikasi-penggalangan-dana' %}" method="get">
+                            <input type="hidden" id="id_u" name="id_u">
+                            <input type="submit" class="btn btn-primary btn-sm" value="Verifikasi">
+                        </form>
+                        {% endif %}
+                        <!-- <form action="{% url 'trigger_dua:delete_pdd' %}" method="get">
+                            <input type="hidden" id="id_d" name="id_d">
+                            <input type="submit" class="btn btn-danger btn-sm" value="Delete">
+                        </form>
 
-                    <form action="{% url 'trigger_dua:cairkan_pdd' %}" method="get">
-                        <input type="hidden" id="id_c" name="id_c">
-                        <input type="submit" class="btn btn-warning btn-sm" value="Cairkan">
-                    </form> -->
-                </td>
+                        <form action="{% url 'trigger_dua:cairkan_pdd' %}" method="get">
+                            <input type="hidden" id="id_c" name="id_c">
+                            <input type="submit" class="btn btn-warning btn-sm" value="Cairkan">
+                        </form> -->
+                    </td>
                 </tr>
             <tr>
             <td>R-001</td>
