@@ -22,10 +22,10 @@
             </thead>
                 {% for d in data %}
                 <tr>
-                    <td>{{ d.email }}</td>
-                    <td>{{ d.nama }}</td>
-                    <td><center>{{ d.jenis }}</center></td>
-                    <td><center>{{ d.status_verifikasi }}</center></td>
+                    <td>{{ d.0 }}</td>
+                    <td>{{ d.2 }}</td>
+                    <td><center>{{ d.14 }}</center></td>
+                    <td><center>{{ d.11 }}</center></td>
 
                     <td>
                         <!-- detail button -->
@@ -39,7 +39,7 @@
                         </form>
                         </center>
                         <!-- verifikasi button -->
-                        {% if d.status_verifikasi=='NOT VERIFIED' %}
+                        {% if d.11=='NOT VERIFIED' %}
                             <center>
                                 <!-- actionnya mengubah status verifikasi pengguna tersebut menjadi verified 
                                 dikembalikan lagi ke html ini-->
