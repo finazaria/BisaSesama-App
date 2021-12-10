@@ -13,46 +13,43 @@
     <div class="container d-flex justify-content-center" align="center">
         <form action="{% url 'trigger_empat:form_donasi' %}" method="POST">
             {% csrf_token %}
+            {% if form.non_field_errors %}
+            <div class="alert alert-danger" role="alert">
+            {{ form.non_field_errors }}
+            </div>
+            {% endif %}
 
             <div class="form-group row">
 
                 <h4>Email Donatur:</h4>
                 <div class="input-group mb-4">
-                    <input class="form-control" type="text" value = "{{email}}" aria-label="disable input example" disabled>
+                    {{form.email}}
                 </div>
 
                 <h4>TimeStamp: </h4>
                 <div class="input-group mb-4">
-                    <input class="form-control" type="text" value = "{{timeStamp}}" aria-label="disable input example" disabled>
+                    {{form.timeStamp}}
                 </div>
 
                 <h4>Judul Penggalangan Dana:</h4>
                 <div class="input-group mb-4">
-                    <input class="form-control" value = "{{Judul}}" type="text" aria-label="disable input example" disabled>
+                    {{form.judul}}
                 </div>
 
                 <h4>Nominal:</h4>
                 <div class="input-group mb-4">
-                    <input class="form-control"  type="number" aria-label="disable input example" disabled>
+                    {{form.Nominal}}
                 </div>
 
                 <h4>Metode Bayar:</h4>
-                <select id="kategori" class="form-control mb-4" aria-label="Default select example" required>
-                    <option selected>Pilih Metode Pembayaran</option>
-                    <option value="1">Transfer</option>
-                    <option value="2">DonaPay</option>
-                  </select>
+                {{form.metodeBayar}}
 
                 <h4>Status Anonim:</h4>
-                <select id="kategori" class="form-control mb-4" aria-label="Default select example" required>
-                    <option selected>Pilih Status Anonim</option>
-                    <option value="1">Ya</option>
-                    <option value="2">Tidak</option>
-                </select>
+                {{form.Status}}
 
                 <h4>Doa:</h4>
                 <div class="input-group mb-4">
-                    <textarea class="form-control" type = "text" rows = 5  required></textarea>
+                    {{form.doa}}
                 </div>
 
             </div>

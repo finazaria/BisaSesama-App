@@ -35,7 +35,8 @@ def form_donasi(request):
             timestamp = datetime.datetime.now()
             email = request.session.get('email')
             cursor.close()
-    context = {'judul' : judul, 'timestamp' : timestamp, 'email' : email}
+            form = Tambah_Donasi(initial={'email':email, 'timeStamp' : timestamp, 'judul' : judul })
+    context = { 'form' : form}
 
     return render(request, 'create_form_pembuatan_donasi.html', context)
 @pengguna
@@ -43,7 +44,7 @@ def read_donasi(request):
     with connection.cursor() as cursor:
         cursor.execute(
                     "SET SEARCH_PATH TO TK_SIDONA SELECT DONASI.idPD, PENGGALANGAN_DANA_PD.judul, kategori_pd.nama_kategori," 
-                    "status_pembayaran.status FROM kategori_pd, DONASI, status_pembayaran, penggalangan_dana_pd WHERE email=%s AND" 
+                    "status_pembayaran.status FROM kategori_pd, DONASI, status_pembayaran, penggalangan_dana_pd WHERE DONASI.email=%s AND" 
                      "status_pembayaran.id = DONASI.idstatuspembayaran AND DONASI.idpd = penggalangan_dana_pd.id AND PENGGALANGAN_DANA_PD.id_kategori = kategori_pd.id;",
                     [request.session.get('email')])
         data = cursor_fetchall(cursor)
@@ -66,8 +67,7 @@ def read_detail_donasi(request):
         data = cursor.fetchone()
         if data is None:
             return redirect('trigger_empat:read_donasi')
-        # columns = [col[0] for col in cursor.description]
-        # datum = dict(zip(columns,  data)) 
+     
         cursor.close()
         cursor.execute("SET SEARCH_PATH TO TK_SIDONA SELECT JUDUL FROM PENGGALANGAN_DANA_PD WHERE idPD = %s LIMIT 1;",[data[5]])
         data2 = cursor.fetchone()
