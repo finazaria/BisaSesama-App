@@ -9,7 +9,7 @@
     </div>
 
     <div class="container d-flex justify-content-center" align="center">
-        <form action="{% url '' %}" method="POST">
+        <form action="{% url 'pengguna : pd_individu' %}" method="POST">
             {% csrf_token %}
           
             {% if form.non_field_errors %}
@@ -19,7 +19,7 @@
             {% endif %}
 
             <div class="form-group row">
-                <h4><label for = "{{form.NIK.id_for_label}}">NIK:</label></h4>
+                <h4>NIK:</h4>
                 {% if form.nik.errors %}
                 <div class="alert alert-danger" role="alert">
                 {{ form.nik.errors }}
@@ -27,22 +27,22 @@
                 {% endif %}
                
                 <div class="input-group mb-4">
-                    <input class="form-control" type="text" aria-label="default input example" required>
+                    <!-- <input class="form-control" type="text" aria-label="default input example" required> -->
                     {{form.nik}}
                 </div>
 
-                <h4><label for = "{{form.Tanggal_lahir.id_for_label}}">Tanggal Lahir:</label></h4>
+                <h4>Tanggal Lahir:</h4>
                 {% if form.tanggal_lahir.errors %}
                 <div class="alert alert-danger" role="alert">
                 {{ form.Tanggal_lahir.errors }}
                 </div>
                 {% endif %}
                 <div class="input-group mb-4">
-                    <input class="form-control" type="text" aria-label="default input example" required>
+                    <!-- <input class="form-control" type="text" aria-label="default input example" required> -->
                     {{form.tanggal_lahir}}
                 </div>
 
-                <h4><label for = "{{form.Jenis_Kelamin.id_for_label}}">Jenis Kelamin:</label></h4>
+                <h4>Jenis Kelamin:</h4>
                 {% if form.jenis_jelamin.errors %}
                 <div class="alert alert-danger" role="alert">
                 {{ form.jenis_kelamin.errors }}
@@ -50,11 +50,11 @@
                 {% endif %}
 
                 <div class="input-group mb-4">
-                    <input class="form-control" type="text" aria-label="default input example" required>
+                    <!-- <input class="form-control" type="text" aria-label="default input example" required> -->
                     {{form.Jenis_Kelamin}}
                 </div>
 
-                <h4><label for = "{{form.FotoKTP.id_for_label}}">Foto KTP:</label></h4>
+                <h4>Foto KTP:</h4>
                 {% if form.FotoKTP.errors %}
                 <div class="alert alert-danger" role="alert">
                 {{ form.FotoKTP.errors }}
@@ -62,7 +62,7 @@
                 {% endif %}
                 
                 <div class="input-group mb-4">
-                    <input class="form-control" type="text" aria-label="default input example" required>
+                    <!-- <input class="form-control" type="text" aria-label="default input example" required> -->
                     {{form.FotoKTP}}
                 </div>
 

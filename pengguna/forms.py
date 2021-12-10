@@ -135,8 +135,12 @@ class PenggalangDanaForm(forms.Form):
     )
     ROLE_CHOICE = [('INDIVIDU', 'Individu'),
                    ('ORGANISASI', 'Organisasi')]
-    peran = forms.ChoiceField(choices=ROLE_CHOICE,
-                              widget=forms.Select(attrs={'class': 'form-control'}))
+    peran = forms.ChoiceField(choices=ROLE_CHOICE, 
+                              widget=forms.Select(attrs={
+                                  'class': 'form-control',
+                                  'id'  : 'kategori',
+                                  'aria-label' : "Default select example"
+                                  }))
 
     def clean_email(self):
         data = self.cleaned_data.get('email')

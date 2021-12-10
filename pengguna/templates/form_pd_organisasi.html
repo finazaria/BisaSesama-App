@@ -9,7 +9,7 @@
     </div>
 
     <div class="container d-flex justify-content-center" align="center">
-        <form action="{% url '' %}" method="POST">
+        <form action="{% url 'pengguna : pd_organisasi' %}" method="POST">
             {% csrf_token %}
             {% if form.non_field_errors %}
             <div class="alert alert-danger" role="alert">
@@ -17,7 +17,7 @@
             </div>
             {% endif %}
             <div class="form-group row">
-                <h4><label for = "{{form.NamaOrganisasi.id_for_label}}">Nama Organisasi:</label></h4>
+                <h4>Nama Organisasi:</h4>
                 {% if form.nama_organisasi.errors %}
                 <div class="alert alert-danger" role="alert">
                 {{ form.nama_organisasi.errors }}
@@ -25,11 +25,11 @@
                 {% endif %}
                
                 <div class="input-group mb-4">
-                    <input class="form-control" type="text" aria-label="default input example" required>
+                    <!-- <input class="form-control" type="text" aria-label="default input example" required> -->
                     {{form.nama_organisasi}}
                 </div>
 
-                <h4><label for = "{{form.NAP.id_for_label}}">Nomor Akta Pendirian:</label></h4>
+                <h4>Nomor Akta Pendirian:</h4>
                 {% if form.nomor_akta_pendirian.errors %}
                 <div class="alert alert-danger" role="alert">
                 {{ form.nomor_akta_pendirian.errors }}
@@ -37,11 +37,11 @@
                 {% endif %}
     
                 <div class="input-group mb-4">
-                    <input class="form-control" type="text" aria-label="default input example" required>
+                    <!-- <input class="form-control" type="text" aria-label="default input example" required> -->
                     {{form.nomor_akta_pendirian}}
                 </div>
 
-                <h4><label for = "{{form.Nomor_Telepon.id_for_label}}">No. Telepon Organisasi:</label></h4>
+                <h4>No. Telepon Organisasi:</h4>
                 {% if form.no_telp_organisasi.errors %}
                 <div class="alert alert-danger" role="alert">
                 {{ form.no_telp_organisasi.errors }}
@@ -49,29 +49,29 @@
                 {% endif %}
     
                 <div class="input-group mb-4">
-                    <input class="form-control" type="text" aria-label="default input example" required>
+                    <!-- <input class="form-control" type="text" aria-label="default input example" required> -->
                     {{form.no_telp_organisasi}}
                 </div>
 
-                <h4><label for = "{{form.Tahun_berdiri.id_for_label}}">Tahun Berdiri:</label></h4>
+                <h4>Tahun Berdiri:</h4>
                 {% if form.tahun_berdiri.errors %}
                 <div class="alert alert-danger" role="alert">
                 {{ form.tahun_berdiri.errors }}
                 </div>
                 {% endif %}
                 <div class="input-group mb-4">
-                    <input class="form-control" type="text" aria-label="default input example" required>
+                    <!-- <input class="form-control" type="text" aria-label="default input example" required> -->
                     {{form.tahun_berdiri}}
                 </div>
 
-                <h4><label for = "{{form.FotoAktaPendirian.id_for_label}}">Foto Akta Pendirian:</label></h4>
+                <h4>Foto Akta Pendirian:</h4>
                 {% if form.FotoAktaPendirian.errors %}
                 <div class="alert alert-danger" role="alert">
                 {{ form.FotoAktaPendirian.errors }}
                 </div>
                 {% endif %}
                 <div class="input-group mb-4">
-                    <input class="form-control" type="text" aria-label="default input example" required>
+                    <!-- <input class="form-control" type="text" aria-label="default input example" required> -->
                     {{form.FotoAktaPendirian}}
                 </div>
 

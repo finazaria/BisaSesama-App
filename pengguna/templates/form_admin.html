@@ -9,7 +9,7 @@
     </div>
 
     <div class="container d-flex justify-content-center" align="center">
-        <form action="{% url '' %}" method="POST">
+        <form action="{% url 'pengguna : admin' %}" method="POST">
             {% csrf_token %}
             {% if form.non_field_errors %}
             <div class="alert alert-danger" role="alert">
@@ -19,7 +19,7 @@
     
             <div class="form-group row">
 
-                <h4><label for = "{{form.email.id_for_label}}">email:</label></h4>
+                <h4>email:</h4>
                 {% if form.email.errors %}
                 <div class="alert alert-danger" role="alert">
                 {{ form.email.errors }}
@@ -27,11 +27,11 @@
                 {% endif %}
 
                 <div class="input-group mb-4">
-                    <input class="form-control" type="text" aria-label="default input example" required>
+                    <!-- <input class="form-control" type="text" aria-label="default input example" required> -->
                     {{form.email}}
                 </div>
 
-                <h4><label for = "{{form.password.id_for_label}}">Password:</label></h4>
+                <h4>Password:</h4>
                 {% if form.password.errors %}
                 <div class="alert alert-danger" role="alert">
                 {{ form.password.errors }}
@@ -39,11 +39,11 @@
                 {% endif %}
 
                 <div class="input-group mb-4">
-                    <input class="form-control" type="text" aria-label="default input example" required>
+                    <!-- <input class="form-control" type="text" aria-label="default input example" required> -->
                     {{form.Password}}
                 </div>
 
-                <h4><label for = "{{form.Nama.id_for_label}}">Nama:</label> </h4>
+                <h4>Nama:</h4>
                 {% if form.nama_lengkap.errors %}
                 <div class="alert alert-danger" role="alert">
                 {{ form.nama_lengkap.errors }}
@@ -51,11 +51,11 @@
                 {% endif %}
 
                 <div class="input-group mb-4">
-                    <input class="form-control" type="text" aria-label="default input example" required>
+                    <!-- <input class="form-control" type="text" aria-label="default input example" required> -->
                     {{form.nama_lengkap}}
                 </div>
 
-                <h4><label for = "form.Nomor.id_for_label">Nomor HP:</label></h4>
+                <h4>Nomor HP:</h4>
                 {% if form.nomor_hp.errors %}
                 <div class="alert alert-danger" role="alert">
                 {{ form.nomor_hp.errors }}
@@ -63,7 +63,7 @@
                 {% endif %}
 
                 <div class="input-group mb-4">
-                    <input class="form-control" type="text" aria-label="default input example" required>
+                    <!-- <input class="form-control" type="text" aria-label="default input example" required> -->
                     {{form.nomor_hp}}
                 </div>
 
