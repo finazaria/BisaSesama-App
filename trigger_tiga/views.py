@@ -1,6 +1,8 @@
 from django.shortcuts import render
-from django.contrib.auth.decorators import login_required
 
+from pengguna.views import admin
+
+@admin
 def read_daftar_penggalangan_dana_admin(request):
     return render(request, 'read_daftar_penggalangan_dana_admin.html')
 

@@ -15,6 +15,15 @@ def pengguna(function):
             return function(request, *args, **kwargs)
     return wrapper
 
+def admin(function):
+    def wrapper(request, *args, **kwargs):
+        email = request.session.get('email')
+        if email is None:
+            return redirect('/login/')
+        else:
+            return function(request, *args, **kwargs)
+    return wrapper
+
 def tidak_ada_pengguna (function):
     def wrapper(request, *args, **kwargs):
         email = request.session.get('email')
@@ -72,7 +81,7 @@ def login(request):
         form = LoginForm()
     context = {'form': form}        # Dengan method GET, semua data login yang telah ada dimasukkan ke dalam context
                                     # dengan variable 'form'.
-    return render(request, "login.html", context)       # Data form tersebut kemudian di-render ke 'login.html'
+    return render(request, "login.html", context)       # Data form tersebut kemudian di-render ke 
 
 @tidak_ada_pengguna
 def register(request):
