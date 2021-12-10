@@ -33,7 +33,7 @@
                         <!-- detail disini bakalan ke profil2 pengguna sesuai dengan pengguna nya
                         tergantung sama d.email nya
                     -->
-                        <form action="{% url 'pengguna:profil-pengguna-individu-adminview' %}" method="get">
+                        <form action="{% url 'pengguna:profil-pengguna' %}" method="get">
                             <input type="hidden" id="id_u" name="id_u">
                             <input type="submit" class="btn btn-success btn-sm" value="Detail">
                         </form>
@@ -41,7 +41,8 @@
                         <!-- verifikasi button -->
                         {% if d.status_verifikasi=='NOT VERIFIED' %}
                             <center>
-                                <!-- actionnya mengubah status verifikasi pengguna tersebut menjadi verified -->
+                                <!-- actionnya mengubah status verifikasi pengguna tersebut menjadi verified 
+                                dikembalikan lagi ke html ini-->
                                 <form action="{% url 'pengguna:read-daftar-pengguna-admin' %}" method="get">
                                     <input type="hidden" id="id_u" name="id_u" value="{{ d.email }}">
                                     <input type="submit" class="btn btn-primary btn-sm" value="Verifikasi">
