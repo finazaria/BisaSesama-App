@@ -20,23 +20,38 @@
                 <th><center>Action</center></th>
 
             </thead>
+                {% for d in data %}
                 <tr>
-                <td>hbavidge0@squidoo.com</td>
-                <td>Hermy Bavidge</td>
-                <td><center>Individu</center></td>
-                <td><center>Terverifikasi</center></td>
+                    <td>{{ d.email }}</td>
+                    <td>{{ d.nama }}</td>
+                    <td><center>{{ d.jenis }}</center></td>
+                    <td><center>{{ d.status_verifikasi }}</center></td>
 
-                <td>
-                    <!-- detail -->
-                    <center>
-                    <form action="{% url 'pengguna:profil-pengguna-individu-adminview' %}" method="get">
-                        <input type="hidden" id="id_u" name="id_u">
-                        <input type="submit" class="btn btn-success btn-sm" value="Detail">
-                    </form>
-                    </center>
-                </td>
+                    <td>
+                        <!-- detail button -->
+                        <center>
+                        <!-- detail disini bakalan ke profil2 pengguna sesuai dengan pengguna nya
+                        tergantung sama d.email nya
+                    -->
+                        <form action="{% url 'pengguna:profil-pengguna-individu-adminview' %}" method="get">
+                            <input type="hidden" id="id_u" name="id_u">
+                            <input type="submit" class="btn btn-success btn-sm" value="Detail">
+                        </form>
+                        </center>
+                        <!-- verifikasi button -->
+                        {% if d.status_verifikasi=='NOT VERIFIED' %}
+                            <center>
+                                <!-- actionnya mengubah status verifikasi pengguna tersebut menjadi verified -->
+                                <form action="{% url 'pengguna:read-daftar-pengguna-admin' %}" method="get">
+                                    <input type="hidden" id="id_u" name="id_u" value="{{ d.email }}">
+                                    <input type="submit" class="btn btn-primary btn-sm" value="Verifikasi">
+                                </form>
+                            </center>
+                        {% endif %}
+                    </td>
                 </tr>
-            <tr>
+                {% endfor %}
+            <!-- <tr>
                 <tr>
                     <td>rhandrock1z@sciencedaily.com</td>
                     <td>Wuckert Group</td>
@@ -45,7 +60,7 @@
     
                     <td>
                         <center>
-                        <!-- detail -->
+                        detail 
                         <form action="{% url 'pengguna:profil-pengguna-organisasi-adminview' %}" method="get">
                             <input type="hidden" id="id_u" name="id_u">
                             <input type="submit" class="btn btn-success btn-sm" value="Detail">
@@ -58,7 +73,7 @@
                         </form>
                         </center>
                     </td>
-                    </tr>
+                    </tr> -->
         </table>
     </div>
 {% endblock %}

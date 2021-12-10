@@ -14,6 +14,7 @@ urlpatterns = [
     path("daftar-pengguna-admin-afterverif", read_daftar_pengguna_admin_afterverif, name="daftar-pengguna-admin-afterverif"),
     path("profil-pengguna-individu-adminview", profil_pengguna_individu_adminview, name="profil-pengguna-individu-adminview"),
     path("profil-pengguna-organisasi-adminview", profil_pengguna_organisasi_adminview, name="profil-pengguna-organisasi-adminview"),
+    path("daftar-pengguna-admin-verif", verifikasi_pengguna, name="daftar-pengguna-admin-verif"),
     
 
 

@@ -79,7 +79,6 @@
                     { % end if % }
                 </div>
 
-           
 
 <!--                Jenis Individu -->
             <div>
@@ -114,7 +113,6 @@
             </div>
             
             <div>
-                {% if role.jumlah_wishlist > 0 %}
                 <h5>Wishlist Donasi:</h5>
 
                 <div class="container d-flex justify-content-center" align="center">
@@ -128,26 +126,26 @@
                         </thead>
                             { % for data in data_pd_donasi % }
                             <tr>
-                            <td>{{ data.id }}</td>
-                            <td>{{ data.judul }}</td>
-                            <td>{{ data.nama_kategori }}</td>
-                            <td>
-                                <form action="{% url 'trigger_dua:read_pdd' %}" method="get">
-                                    <input type="hidden" id="id_u" name="id_u">
-                                    <input type="submit" class="btn btn-success btn-sm" value="Detail">
-                                </form>
-            
-                                <form action="{% url 'trigger_empat:form_donasi' %}" method="get">
-                                    <input type="hidden" id="id_d" name="id_d" value = {{data.id}}>
-                                    <input type="submit" class="btn btn-danger btn-sm" value="Donasi">
-                                </form>
+                                <td>{{ data.id }}</td>
+                                <td>{{ data.judul }}</td>
+                                <td>{{ data.nama_kategori }}</td>
+                                <td>
+                                    <form action="{% url 'trigger_dua:read_pdd' %}" method="get">
+                                        <input type="hidden" id="id_u" name="id_u">
+                                        <input type="submit" class="btn btn-success btn-sm" value="Detail">
+                                    </form>
+                
+                                    <form action="{% url 'trigger_empat:form_donasi' %}" method="get">
+                                        <input type="hidden" id="id_d" name="id_d">
+                                        <input type="submit" class="btn btn-danger btn-sm" value="Donasi">
+                                    </form>
 
-                                <form action="" method="get">
-                                    <input type="hidden" id="id_c" name="id_c" value = {{data.id}}>
-                                    <input type="submit" class="btn btn-warning btn-sm" value="Delete">
-                                </form>
-                            </td>
-                            </tr>
+                                    <form action="" method="get">
+                                        <input type="hidden" id="id_c" name="id_c">
+                                        <input type="submit" class="btn btn-warning btn-sm" value="Delete">
+                                    </form>
+                                </td>
+                                </tr>
             
                             <!-- skenario update 
                             <tr>
@@ -173,10 +171,11 @@
                                 </td>
                                 </tr>
                             -->
+                            {% endfor %}
                     </table>
             
                 </div>
-                {% endif %}
+            
                 <div class="container justify-content text-left mb-5">
                     <h6><strong>Jumlah Wishlist: {{ role.jumlah_wishlist }}</strong></h6>
                 </div>

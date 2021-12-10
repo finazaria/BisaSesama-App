@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}PROFIL PENGGUNA{% endblock %}
-
+<!-- profil pengguna kalo admin nge-click detail dari suatu pengguna -->
 {% block content %}
     <div class='bg-primary jumbotron justify-content-center text-white' align="center">
         <h1>PROFIL</h1>
@@ -47,39 +47,8 @@
                 <!-- Individu atau Organisasi -->
                 <h4>Jenis:</h4>
                 <div class="input-group mb-4">
-                    <input class="form-control" type="text" value="{{role}}" aria-label="Disabled input example" disabled readonly>
+                    <input class="form-control" type="text" value="{{user.role}}" aria-label="Disabled input example" disabled readonly>
                 </div>
-
-<!--                Jenis Organisasi 
-
-                <h4>Nama Organisasi:</h4>
-                <div class="input-group mb-4">
-                    <input class="form-control" type="text" value="Schumm Inc" aria-label="Disabled input example" disabled readonly>
-                </div>
-
-                <h4>Nomor Akta Pendirian:</h4>
-                <div class="input-group mb-4">
-                    <input class="form-control" type="text" value="AK-3077" aria-label="Disabled input example" disabled readonly>
-                </div>
-
-                <h4>No. Telepon Organisasi:</h4>
-                <div class="input-group mb-4">
-                    <input class="form-control" type="text" value="+86 202 761 6982" aria-label="Disabled input example" disabled readonly>
-                </div>
-
-                <h4>Tahun Berdiri:</h4>
-                <div class="input-group mb-4">
-                    <input class="form-control" type="text" value="2006" aria-label="Disabled input example" disabled readonly>
-                </div>
-
-                <h4>Foto Akta Pendirian:</h4>
-                <div class="input-group mb-4">
-                    <input class="form-control" type="text" value="Akta.jpg" aria-label="Disabled input example" disabled readonly>
-                </div>
-
-            -->
-
-<!--                Jenis Individu -->
 
             <h4>NIK:</h4>
             <div class="input-group mb-4">

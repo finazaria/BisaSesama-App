@@ -167,7 +167,7 @@ def profil_pengguna_individu_adminview(request):
             request.session.get("email"),
             request.session.get("role"))
     context = {'user': data_pengguna, 'role': role_pengguna}
-    return render(request, 'profil_pengguna_individu_adminview.html')
+    return render(request, 'profil_pengguna_individu_adminview.html',context)
 
 @pengguna
 def profil_pengguna_organisasi_adminview(request):
@@ -179,7 +179,7 @@ def profil_pengguna_organisasi_adminview(request):
             request.session.get("email"),
             request.session.get("role"))
     context = {'user': data_pengguna, 'role': role_pengguna}
-    return render(request, 'profil_pengguna_organisasi_adminview.html')
+    return render(request, 'profil_pengguna_organisasi_adminview.html',context)
 
 # Admin only page. Pengguna cannot access
 @pengguna
@@ -188,7 +188,13 @@ def read_daftar_pengguna_admin(request):
         cursor.execute("SELECT email, nama, jenis, status_verifikasi FROM PENGGALANG_DANA;")
         data_pengguna = cursor_fetchall(cursor)
     context = {'data': data_pengguna}
-    return render(request, 'read_daftar_pengguna_admin.html')
+    return render(request, 'read_daftar_pengguna_admin.html', context)
+
+def verifikasi_pengguna(request):
+    with connection.cursor() as cursor:
+        # name = id_u with the value of {{ d.email }}
+        cursor.execute("UPDATE PENGGALANG_DANA SET status_verifikasi='VERIFIED' WHERE email=%s;", [request.GET.get('id_u')])
+        return redirect('pengguna:profil-pengguna-admin-verif')
 
 @pengguna
 def read_daftar_pengguna_admin_afterverif(request):
@@ -198,4 +204,5 @@ def read_daftar_pengguna_admin_afterverif(request):
                        "WHERE status_verifikasi = 'VERIFIED';")
         data_pengguna= cursor_fetchall(cursor)
     context = {'data': data_pengguna}
-    return render(request, 'read_daftar_pengguna_admin_afterverif.html')
+    return render(request, 'read_daftar_pengguna_admin_afterverif.html',context)
+
