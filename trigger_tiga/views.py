@@ -37,6 +37,7 @@ def detail2_daftar_penggalangan_dana(request):
 
 # POV Pengguna
 def form_update_penggalangan_dana(request):
+    id_verifikasi=request.session.get("verifikasi_id")
     return render(request, 'form_update_penggalangan_dana.html')
 
 # Catatan pengajuan
