@@ -1,4 +1,4 @@
-# Tugas Kelompok 2 Basdat
+# [CSGE602070] Database Course Group Assignment
 
 ## KELOMPOK 15 BASDAT B
 Nama Anggota Kelompok 15:
