@@ -1,6 +1,7 @@
 # [CSGE602070] Database Course Group Assignment
 
 Class B, Group 15
+
 Group Members:
 1. Adrian Hakim Utomo (2006597613)
 2. Alfina Azaria (2006482773)
