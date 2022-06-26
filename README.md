@@ -1,7 +1,10 @@
 # [CSGE602070] Database Course Group Assignment
 
-## KELOMPOK 15 BASDAT B
-Nama Anggota Kelompok 15:
+## About
+
+BisaSesama 
+
+Group Members:
 1. Adrian Hakim Utomo (2006597613)
 2. Alfina Azaria (2006482773)
 3. Christopher Moses Nathaanel (2006597361)
