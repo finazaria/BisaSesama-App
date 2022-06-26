@@ -2,7 +2,9 @@
 
 ## About
 
-BisaSesama 
+BisaSesama is a website that allows users to open fundraisers and make donations to help others. It can display data related to fundraising that has been made, fundraising that can be donated, and the number of donations that have been collected. You can also display fundraising data by category, such as health, natural disasters, and places of worship.
+
+This website was made
 
 Group Members:
 1. Adrian Hakim Utomo (2006597613)
