@@ -19,6 +19,6 @@ BisaSesama is a web application that allows users to open fundraisers and make d
 
 As the main goal of this coursework, we were expected to design our own database by making queries for the GET, POST, UPDATE, and DELETE methods. We were also required to make the triggers for the web application.
 
-Hence, BisaSesama is developed under the backend framework that we developed by ourselves, without using any frameworks that are commonly used, such as Django or Springboot.
+Hence, BisaSesama is developed under the Back-End framework that we developed by ourselves, without using any frameworks that are commonly used, such as Django or Springboot.
 
 The programming languages that are used to create this web application are Python, HTML, CSS, and JavaScript. 
