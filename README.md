@@ -10,7 +10,7 @@ Group Members:
 
 
 
-#### HerokuApp Link
+#### HerokuApp Link - NO LONGER ACTIVE OR AVAILABLE
 https://bisasesama.herokuapp.com/
 
 ## About
