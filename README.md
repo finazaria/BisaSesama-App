@@ -21,4 +21,4 @@ As the main goal of this coursework, we were expected to design our own database
 
 Hence, BisaSesama is developed under the backend framework that we developed by ourselves, without using any frameworks that are commonly used, such as Django or Springboot.
 
-The programming languages we use to create this web application are Python, HTML, CSS, and JavaScript. 
+The programming languages that are used to create this web application are Python, HTML, CSS, and JavaScript. 
